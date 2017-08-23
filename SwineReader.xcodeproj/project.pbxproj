@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44C71353DA56C0AAB9B56F9C /* Pods_SwineReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2654AE98FB401DD9B783DEEA /* Pods_SwineReaderTests.framework */; };
 		B32659991F4CC4B2005CEF01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659981F4CC4B2005CEF01 /* AppDelegate.swift */; };
 		B326599B1F4CC4B2005CEF01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* ViewController.swift */; };
 		B326599E1F4CC4B2005CEF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B326599C1F4CC4B2005CEF01 /* Main.storyboard */; };
 		B32659A01F4CC4B2005CEF01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B326599F1F4CC4B2005CEF01 /* Assets.xcassets */; };
 		B32659A31F4CC4B2005CEF01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32659A11F4CC4B2005CEF01 /* LaunchScreen.storyboard */; };
 		B32659AE1F4CC4B2005CEF01 /* SwineReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659AD1F4CC4B2005CEF01 /* SwineReaderTests.swift */; };
+		B32659B81F4E1992005CEF01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* ViewController.swift */; };
 		D7F20D2E1A7228A26FA79F45 /* Pods_SwineReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C8050B4B684E138999FC77 /* Pods_SwineReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2654AE98FB401DD9B783DEEA /* Pods_SwineReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwineReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		471F7209D1F90519BDF4927F /* Pods-SwineReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwineReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwineReader/Pods-SwineReader.debug.xcconfig"; sourceTree = "<group>"; };
 		6C7E9A1E01A5DC0F60D4C0D9 /* Pods-SwineReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwineReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwineReader/Pods-SwineReader.release.xcconfig"; sourceTree = "<group>"; };
 		B32659951F4CC4B2005CEF01 /* SwineReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwineReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,7 +42,9 @@
 		B32659A91F4CC4B2005CEF01 /* SwineReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwineReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32659AD1F4CC4B2005CEF01 /* SwineReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwineReaderTests.swift; sourceTree = "<group>"; };
 		B32659AF1F4CC4B2005CEF01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF9581CBC76582025D14508B /* Pods-SwineReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwineReaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9C8050B4B684E138999FC77 /* Pods_SwineReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwineReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9E556A6E3908FEF410D7519 /* Pods-SwineReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwineReaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44C71353DA56C0AAB9B56F9C /* Pods_SwineReaderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				F9C8050B4B684E138999FC77 /* Pods_SwineReader.framework */,
+				2654AE98FB401DD9B783DEEA /* Pods_SwineReaderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,6 +123,8 @@
 			children = (
 				471F7209D1F90519BDF4927F /* Pods-SwineReader.debug.xcconfig */,
 				6C7E9A1E01A5DC0F60D4C0D9 /* Pods-SwineReader.release.xcconfig */,
+				F9E556A6E3908FEF410D7519 /* Pods-SwineReaderTests.debug.xcconfig */,
+				DF9581CBC76582025D14508B /* Pods-SwineReaderTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -147,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B32659B51F4CC4B2005CEF01 /* Build configuration list for PBXNativeTarget "SwineReaderTests" */;
 			buildPhases = (
+				E9B353BBA73ACC997765A4C2 /* [CP] Check Pods Manifest.lock */,
 				B32659A51F4CC4B2005CEF01 /* Sources */,
 				B32659A61F4CC4B2005CEF01 /* Frameworks */,
 				B32659A71F4CC4B2005CEF01 /* Resources */,
+				FF4FB56028C9B946ABCE162C /* [CP] Embed Pods Frameworks */,
+				F50DB964302CBF27F96A0248 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,6 +279,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwineReader/Pods-SwineReader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E9B353BBA73ACC997765A4C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F50DB964302CBF27F96A0248 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF4FB56028C9B946ABCE162C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -283,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32659B81F4E1992005CEF01 /* ViewController.swift in Sources */,
 				B32659AE1F4CC4B2005CEF01 /* SwineReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,6 +500,7 @@
 		};
 		B32659B61F4CC4B2005CEF01 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9E556A6E3908FEF410D7519 /* Pods-SwineReaderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -456,6 +515,7 @@
 		};
 		B32659B71F4CC4B2005CEF01 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF9581CBC76582025D14508B /* Pods-SwineReaderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +547,7 @@
 				B32659B41F4CC4B2005CEF01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B32659B51F4CC4B2005CEF01 /* Build configuration list for PBXNativeTarget "SwineReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +556,7 @@
 				B32659B71F4CC4B2005CEF01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

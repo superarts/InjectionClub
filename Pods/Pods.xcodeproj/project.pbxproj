@@ -10,14 +10,17 @@
 		031B43FC852AEFBD778427B03A5BEC6B /* ServiceEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E1CC0187A21216C9401FD5A8EFA2E6 /* ServiceEntry.swift */; };
 		08F454E85CB08D34186E1CB2BA717FC7 /* ObjectScope.Standard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A88E6EED12017423C33297A992DA67A /* ObjectScope.Standard.swift */; };
 		0A405465E5E517D6BAD8C6BA6B60C8EC /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235A4ED28910A9E81E4DF7B5D5AF6CEA /* Container.swift */; };
+		12517AFC3BA98CC5EDB5E675791E2413 /* Pods-SwineReaderTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F9843371E72C5D7366B1D9FB998C384 /* Pods-SwineReaderTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		192EBB70E652396D7B94EB3438A86861 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		1AF735F0F96C4049FB259D9213BC17F2 /* Pods-SwineReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AA4C566F4A8267F8039242D70D4F693D /* Pods-SwineReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AF735F0F96C4049FB259D9213BC17F2 /* Pods-SwineReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3819B60308F5D903A44B67059AA2BF1C /* Pods-SwineReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		534ABEC5CD4B6C425112299347E9B850 /* UnavailableItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089A9B73E719B505F935307E76513CD7 /* UnavailableItems.swift */; };
 		6027507015136FBF0B024794A2521E88 /* ObjectScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717D1EF8B2668F61198402E5B74B91EE /* ObjectScope.swift */; };
 		69DD93A7AE00F9A35ACB6734165529B1 /* FunctionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78608815FC7FDA880476DEF5C183180A /* FunctionType.swift */; };
 		725873C471E7351B5AA7FEF3E0C0420B /* SpinLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C6D9EDF73D83CBD88E1BB508FDA86 /* SpinLock.swift */; };
+		74AF7B7D6BC23B416A5238F70D5C78FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		7734ABDFFB81A7ED60D8F7A0B20B74A3 /* Pods-SwineReaderTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB349B837C7337EEBD7438C2C47B821 /* Pods-SwineReaderTests-dummy.m */; };
 		7FBC843BF5276E8B67A7F1BE21CCF86E /* Swinject-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9494C57C27DF909BB13C039079D50084 /* Swinject-dummy.m */; };
-		8A56BB0F3E661F7E028D54FF8BC5D892 /* Pods-SwineReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE8306AA4F602B823FB61F68D497294B /* Pods-SwineReader-dummy.m */; };
+		8A56BB0F3E661F7E028D54FF8BC5D892 /* Pods-SwineReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0163D4F14180F884E1F5CC2CF586F5 /* Pods-SwineReader-dummy.m */; };
 		8E468CBDA53BE5CE559BC4CD309E2EF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		974B647280E297E9F4D52A003B6CA81C /* DebugHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA8B13BF7CF6C5F95D2E021C78DFAAE /* DebugHelper.swift */; };
 		A716425CCDB51788F2C655A17A838C27 /* SynchronizedResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059032485B197FF69BD39326AE0B5E5C /* SynchronizedResolver.swift */; };
@@ -42,48 +45,66 @@
 			remoteGlobalIDString = 325A481A5B92774BEE6DE8DAE8F1523C;
 			remoteInfo = Swinject;
 		};
+		61E3B09C5BEB5174DB4A313CECC4FA08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 325A481A5B92774BEE6DE8DAE8F1523C;
+			remoteInfo = Swinject;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		059032485B197FF69BD39326AE0B5E5C /* SynchronizedResolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedResolver.swift; path = Sources/SynchronizedResolver.swift; sourceTree = "<group>"; };
 		0723B170011B90BBBF15A618AAC331C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		089A9B73E719B505F935307E76513CD7 /* UnavailableItems.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnavailableItems.swift; path = Sources/UnavailableItems.swift; sourceTree = "<group>"; };
+		0CAC7AEBA7FC0AA03197FF78204BBFB9 /* Pods-SwineReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwineReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0CE7782B72F70182491F630B6A669206 /* ServiceKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServiceKey.swift; path = Sources/ServiceKey.swift; sourceTree = "<group>"; };
 		16CD2E6B218581A22EA740076D5BF1DC /* Swinject.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Swinject.modulemap; sourceTree = "<group>"; };
+		1C50D30B28C4648E3D2106838064F63E /* Pods-SwineReaderTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwineReaderTests-resources.sh"; sourceTree = "<group>"; };
 		20D8F0EE95546D79B8D0B009588CC478 /* _Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = _Resolver.swift; path = Sources/_Resolver.swift; sourceTree = "<group>"; };
 		235A4ED28910A9E81E4DF7B5D5AF6CEA /* Container.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Container.swift; path = Sources/Container.swift; sourceTree = "<group>"; };
-		2768E70AAC75F9574902408C2EF0AEE8 /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Swinject.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2441E3489A2E4D330670EA9C92A06DA0 /* Pods-SwineReader-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwineReader-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2A88E6EED12017423C33297A992DA67A /* ObjectScope.Standard.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectScope.Standard.swift; path = Sources/ObjectScope.Standard.swift; sourceTree = "<group>"; };
 		308C2843355FA4FEC6D9B20F0D819BE1 /* Assembler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assembler.swift; path = Sources/Assembler.swift; sourceTree = "<group>"; };
+		33679C3819DF0AFD39AE928F916BB0A2 /* Pods-SwineReader-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwineReader-acknowledgements.plist"; sourceTree = "<group>"; };
+		365543755437A24CB1A87D69982A30B3 /* Pods-SwineReaderTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwineReaderTests.modulemap"; sourceTree = "<group>"; };
+		3819B60308F5D903A44B67059AA2BF1C /* Pods-SwineReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwineReader-umbrella.h"; sourceTree = "<group>"; };
 		3E6C6D9EDF73D83CBD88E1BB508FDA86 /* SpinLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SpinLock.swift; path = Sources/SpinLock.swift; sourceTree = "<group>"; };
 		424F9CCB9B05DEFB50AA6E341CBB8CC6 /* Swinject.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Swinject.xcconfig; sourceTree = "<group>"; };
 		44E1CC0187A21216C9401FD5A8EFA2E6 /* ServiceEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServiceEntry.swift; path = Sources/ServiceEntry.swift; sourceTree = "<group>"; };
+		4809E95A429E48124AD1356B8D8ACE74 /* Pods-SwineReader-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwineReader-frameworks.sh"; sourceTree = "<group>"; };
 		4A2A30C36D831B09A0FD04D413E5C4E6 /* Assembly.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Assembly.swift; path = Sources/Assembly.swift; sourceTree = "<group>"; };
-		507D941E1FB2D54AFE0EDD1A4E17CC01 /* Pods-SwineReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwineReader.modulemap"; sourceTree = "<group>"; };
+		4C3BF3EB79335278470CA1A298210B74 /* Swinject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Swinject.framework; path = Swinject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F9843371E72C5D7366B1D9FB998C384 /* Pods-SwineReaderTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwineReaderTests-umbrella.h"; sourceTree = "<group>"; };
+		51920ADCE064459037018EFB6B6BA6C8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60EB2F3CD3D6EF8C2CB20BD9D42045FB /* Container.Arguments.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Container.Arguments.swift; path = Sources/Container.Arguments.swift; sourceTree = "<group>"; };
 		63538A1BC981E736E8BEA964EE7F736A /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Sources/Resolver.swift; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6CC0CAC99D8670CD532255D58A0C07A9 /* Pods-SwineReaderTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwineReaderTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		717D1EF8B2668F61198402E5B74B91EE /* ObjectScope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObjectScope.swift; path = Sources/ObjectScope.swift; sourceTree = "<group>"; };
-		7187FBBD78C38DB3E3676B42A6B291EC /* Pods-SwineReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwineReader.debug.xcconfig"; sourceTree = "<group>"; };
-		76F03F3F62CB4A3922438C6288BFDE31 /* Pods_SwineReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwineReader.framework; path = "Pods-SwineReader.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78608815FC7FDA880476DEF5C183180A /* FunctionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FunctionType.swift; path = Sources/FunctionType.swift; sourceTree = "<group>"; };
 		7B04C1F96BA6223EC3BF263FE4C107BA /* InstanceStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InstanceStorage.swift; path = Sources/InstanceStorage.swift; sourceTree = "<group>"; };
+		83EA3E4841785CDA4203EC2455F39E2D /* Pods-SwineReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwineReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		8802E731D064428350B0A17CCB54644F /* Swinject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Swinject.h; path = Sources/Swinject.h; sourceTree = "<group>"; };
 		889C47B8747F4F8D22F9FE0C9B915890 /* Container.Logging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Container.Logging.swift; path = Sources/Container.Logging.swift; sourceTree = "<group>"; };
-		8B084336C9835D36339732B3FC5488F9 /* Pods-SwineReader-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwineReader-acknowledgements.plist"; sourceTree = "<group>"; };
-		8EE68CACED8244E2697372D4EC7B3FCD /* Pods-SwineReader-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwineReader-frameworks.sh"; sourceTree = "<group>"; };
+		8CDD6F8960C6200D173D0EEACC019249 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9494C57C27DF909BB13C039079D50084 /* Swinject-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Swinject-dummy.m"; sourceTree = "<group>"; };
-		AA4C566F4A8267F8039242D70D4F693D /* Pods-SwineReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwineReader-umbrella.h"; sourceTree = "<group>"; };
-		AB73266B5514928CD9D30FC6C45FF0E1 /* Pods-SwineReader-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwineReader-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B7FE55B74CFDBD05DF2AFD7EF41AB411 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9FB349B837C7337EEBD7438C2C47B821 /* Pods-SwineReaderTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwineReaderTests-dummy.m"; sourceTree = "<group>"; };
+		A0560C967F5D06AA92E5D1EA2B5B5003 /* Pods-SwineReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwineReader.debug.xcconfig"; sourceTree = "<group>"; };
+		A6ED459DB20EAFFA9D8BA2EB5F532CB9 /* Pods-SwineReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-SwineReader.modulemap"; sourceTree = "<group>"; };
+		AACCD7F168E90CE6653CDB1948428AC5 /* Pods_SwineReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwineReaderTests.framework; path = "Pods-SwineReaderTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC0163D4F14180F884E1F5CC2CF586F5 /* Pods-SwineReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwineReader-dummy.m"; sourceTree = "<group>"; };
+		B2792B8FD490262C516D3B5B59E51427 /* Pods-SwineReader-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwineReader-resources.sh"; sourceTree = "<group>"; };
 		BD494998325225B49AA0143C20765E3F /* SynchronizedResolver.Arguments.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SynchronizedResolver.Arguments.swift; path = Sources/SynchronizedResolver.Arguments.swift; sourceTree = "<group>"; };
 		D0FF1B2CCC875FF2CA893FB254228C62 /* Swinject-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swinject-umbrella.h"; sourceTree = "<group>"; };
+		D13320A5799565FB594BFC31E337DB03 /* Pods_SwineReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwineReader.framework; path = "Pods-SwineReader.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D944AEC50578E836417739EEA28780C8 /* Pods-SwineReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwineReader.release.xcconfig"; sourceTree = "<group>"; };
 		DAA8B13BF7CF6C5F95D2E021C78DFAAE /* DebugHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DebugHelper.swift; path = Sources/DebugHelper.swift; sourceTree = "<group>"; };
 		DB16CDEF51ED617C1C2A50B770F61659 /* Swinject-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Swinject-prefix.pch"; sourceTree = "<group>"; };
-		DEEA9C0083C262CE0E9945D6189DF79D /* Pods-SwineReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwineReader.release.xcconfig"; sourceTree = "<group>"; };
-		EE8306AA4F602B823FB61F68D497294B /* Pods-SwineReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwineReader-dummy.m"; sourceTree = "<group>"; };
-		F13463F316919801E4197A5DFD13096E /* Pods-SwineReader-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwineReader-resources.sh"; sourceTree = "<group>"; };
+		E7DAA58D21C68131C04D9CD70F385EB9 /* Pods-SwineReaderTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwineReaderTests-frameworks.sh"; sourceTree = "<group>"; };
+		F7D956F1A7622C27D7CE86248AF0ABC4 /* Pods-SwineReaderTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwineReaderTests-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +113,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				192EBB70E652396D7B94EB3438A86861 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D24F4E2124C093008756622ABAEC9EFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				74AF7B7D6BC23B416A5238F70D5C78FA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,33 +135,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10F733DCEC47D238CA9A10695A9F0255 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				76F03F3F62CB4A3922438C6288BFDE31 /* Pods_SwineReader.framework */,
-				2768E70AAC75F9574902408C2EF0AEE8 /* Swinject.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		1293DDBF5F0D0F87BCBD7D87EAF5EAA6 /* Pods-SwineReader */ = {
-			isa = PBXGroup;
-			children = (
-				B7FE55B74CFDBD05DF2AFD7EF41AB411 /* Info.plist */,
-				507D941E1FB2D54AFE0EDD1A4E17CC01 /* Pods-SwineReader.modulemap */,
-				AB73266B5514928CD9D30FC6C45FF0E1 /* Pods-SwineReader-acknowledgements.markdown */,
-				8B084336C9835D36339732B3FC5488F9 /* Pods-SwineReader-acknowledgements.plist */,
-				EE8306AA4F602B823FB61F68D497294B /* Pods-SwineReader-dummy.m */,
-				8EE68CACED8244E2697372D4EC7B3FCD /* Pods-SwineReader-frameworks.sh */,
-				F13463F316919801E4197A5DFD13096E /* Pods-SwineReader-resources.sh */,
-				AA4C566F4A8267F8039242D70D4F693D /* Pods-SwineReader-umbrella.h */,
-				7187FBBD78C38DB3E3676B42A6B291EC /* Pods-SwineReader.debug.xcconfig */,
-				DEEA9C0083C262CE0E9945D6189DF79D /* Pods-SwineReader.release.xcconfig */,
-			);
-			name = "Pods-SwineReader";
-			path = "Target Support Files/Pods-SwineReader";
-			sourceTree = "<group>";
-		};
 		13BCE09D766EAB1E0E4918A17D73C769 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,12 +157,40 @@
 			path = "../Target Support Files/Swinject";
 			sourceTree = "<group>";
 		};
-		361A471D93A0F6DA4E92AF288A75BBE5 /* Targets Support Files */ = {
+		3C03FCBCB41119DF52D820E4875AC0D3 /* Pods-SwineReader */ = {
 			isa = PBXGroup;
 			children = (
-				1293DDBF5F0D0F87BCBD7D87EAF5EAA6 /* Pods-SwineReader */,
+				8CDD6F8960C6200D173D0EEACC019249 /* Info.plist */,
+				A6ED459DB20EAFFA9D8BA2EB5F532CB9 /* Pods-SwineReader.modulemap */,
+				2441E3489A2E4D330670EA9C92A06DA0 /* Pods-SwineReader-acknowledgements.markdown */,
+				33679C3819DF0AFD39AE928F916BB0A2 /* Pods-SwineReader-acknowledgements.plist */,
+				AC0163D4F14180F884E1F5CC2CF586F5 /* Pods-SwineReader-dummy.m */,
+				4809E95A429E48124AD1356B8D8ACE74 /* Pods-SwineReader-frameworks.sh */,
+				B2792B8FD490262C516D3B5B59E51427 /* Pods-SwineReader-resources.sh */,
+				3819B60308F5D903A44B67059AA2BF1C /* Pods-SwineReader-umbrella.h */,
+				A0560C967F5D06AA92E5D1EA2B5B5003 /* Pods-SwineReader.debug.xcconfig */,
+				D944AEC50578E836417739EEA28780C8 /* Pods-SwineReader.release.xcconfig */,
 			);
-			name = "Targets Support Files";
+			name = "Pods-SwineReader";
+			path = "Target Support Files/Pods-SwineReader";
+			sourceTree = "<group>";
+		};
+		611E3572CB66C4DDD13F989569EC30F4 /* Pods-SwineReaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				51920ADCE064459037018EFB6B6BA6C8 /* Info.plist */,
+				365543755437A24CB1A87D69982A30B3 /* Pods-SwineReaderTests.modulemap */,
+				6CC0CAC99D8670CD532255D58A0C07A9 /* Pods-SwineReaderTests-acknowledgements.markdown */,
+				F7D956F1A7622C27D7CE86248AF0ABC4 /* Pods-SwineReaderTests-acknowledgements.plist */,
+				9FB349B837C7337EEBD7438C2C47B821 /* Pods-SwineReaderTests-dummy.m */,
+				E7DAA58D21C68131C04D9CD70F385EB9 /* Pods-SwineReaderTests-frameworks.sh */,
+				1C50D30B28C4648E3D2106838064F63E /* Pods-SwineReaderTests-resources.sh */,
+				4F9843371E72C5D7366B1D9FB998C384 /* Pods-SwineReaderTests-umbrella.h */,
+				0CAC7AEBA7FC0AA03197FF78204BBFB9 /* Pods-SwineReaderTests.debug.xcconfig */,
+				83EA3E4841785CDA4203EC2455F39E2D /* Pods-SwineReaderTests.release.xcconfig */,
+			);
+			name = "Pods-SwineReaderTests";
+			path = "Target Support Files/Pods-SwineReaderTests";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -169,8 +199,8 @@
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				13BCE09D766EAB1E0E4918A17D73C769 /* Pods */,
-				10F733DCEC47D238CA9A10695A9F0255 /* Products */,
-				361A471D93A0F6DA4E92AF288A75BBE5 /* Targets Support Files */,
+				B9C89B09AFB9E200C2DD0144A752F820 /* Products */,
+				8B25989D0C91492B9702AA6870E6501E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +232,25 @@
 			path = Swinject;
 			sourceTree = "<group>";
 		};
+		8B25989D0C91492B9702AA6870E6501E /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3C03FCBCB41119DF52D820E4875AC0D3 /* Pods-SwineReader */,
+				611E3572CB66C4DDD13F989569EC30F4 /* Pods-SwineReaderTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B9C89B09AFB9E200C2DD0144A752F820 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D13320A5799565FB594BFC31E337DB03 /* Pods_SwineReader.framework */,
+				AACCD7F168E90CE6653CDB1948428AC5 /* Pods_SwineReaderTests.framework */,
+				4C3BF3EB79335278470CA1A298210B74 /* Swinject.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +270,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		7E0556B5167C910358770B2EC06B2341 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12517AFC3BA98CC5EDB5E675791E2413 /* Pods-SwineReaderTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BEE094946035A019A4A23D2E190A9351 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,7 +312,25 @@
 			);
 			name = Swinject;
 			productName = Swinject;
-			productReference = 2768E70AAC75F9574902408C2EF0AEE8 /* Swinject.framework */;
+			productReference = 4C3BF3EB79335278470CA1A298210B74 /* Swinject.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		381F931DAD77952D59F35594DF2E5684 /* Pods-SwineReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 312FBF7811ED9FEE3E92D1CC9D4C08F5 /* Build configuration list for PBXNativeTarget "Pods-SwineReaderTests" */;
+			buildPhases = (
+				B4F053FEEBC4EBAFCDA522B8E0CB6560 /* Sources */,
+				D24F4E2124C093008756622ABAEC9EFA /* Frameworks */,
+				7E0556B5167C910358770B2EC06B2341 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50F30F2AEEDCACE2FDA0424AD75F039B /* PBXTargetDependency */,
+			);
+			name = "Pods-SwineReaderTests";
+			productName = "Pods-SwineReaderTests";
+			productReference = AACCD7F168E90CE6653CDB1948428AC5 /* Pods_SwineReaderTests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		EF10DDF41A1414308918D8BC522FF7AE /* Pods-SwineReader */ = {
@@ -273,7 +348,7 @@
 			);
 			name = "Pods-SwineReader";
 			productName = "Pods-SwineReader";
-			productReference = 76F03F3F62CB4A3922438C6288BFDE31 /* Pods_SwineReader.framework */;
+			productReference = D13320A5799565FB594BFC31E337DB03 /* Pods_SwineReader.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -293,11 +368,12 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 10F733DCEC47D238CA9A10695A9F0255 /* Products */;
+			productRefGroup = B9C89B09AFB9E200C2DD0144A752F820 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				EF10DDF41A1414308918D8BC522FF7AE /* Pods-SwineReader */,
+				381F931DAD77952D59F35594DF2E5684 /* Pods-SwineReaderTests */,
 				325A481A5B92774BEE6DE8DAE8F1523C /* Swinject */,
 			);
 		};
@@ -309,6 +385,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A56BB0F3E661F7E028D54FF8BC5D892 /* Pods-SwineReader-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4F053FEEBC4EBAFCDA522B8E0CB6560 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7734ABDFFB81A7ED60D8F7A0B20B74A3 /* Pods-SwineReaderTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +425,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		50F30F2AEEDCACE2FDA0424AD75F039B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Swinject;
+			target = 325A481A5B92774BEE6DE8DAE8F1523C /* Swinject */;
+			targetProxy = 61E3B09C5BEB5174DB4A313CECC4FA08 /* PBXContainerItemProxy */;
+		};
 		ADB15B9579F486FAB3314E1E0537FF37 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Swinject;
@@ -352,7 +442,7 @@
 /* Begin XCBuildConfiguration section */
 		25CDB1A46DB6DBF5A5AD4F9615FDE9EF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEEA9C0083C262CE0E9945D6189DF79D /* Pods-SwineReader.release.xcconfig */;
+			baseConfigurationReference = D944AEC50578E836417739EEA28780C8 /* Pods-SwineReader.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -501,6 +591,83 @@
 			};
 			name = Debug;
 		};
+		9F2576746F942482667737242B5328CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83EA3E4841785CDA4203EC2455F39E2D /* Pods-SwineReaderTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwineReaderTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwineReaderTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B070F268BCFA126761A3F3A14758286B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CAC7AEBA7FC0AA03197FF78204BBFB9 /* Pods-SwineReaderTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SwineReaderTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SwineReaderTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		C104F7F091290C3D1E248192F07FE689 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -551,7 +718,7 @@
 		};
 		D58F63378871BEFCE6A44666CD0DD2BE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7187FBBD78C38DB3E3676B42A6B291EC /* Pods-SwineReader.debug.xcconfig */;
+			baseConfigurationReference = A0560C967F5D06AA92E5D1EA2B5B5003 /* Pods-SwineReader.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -596,6 +763,15 @@
 			buildConfigurations = (
 				C104F7F091290C3D1E248192F07FE689 /* Debug */,
 				34FE9531DA9AF2820790339988D5FF41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		312FBF7811ED9FEE3E92D1CC9D4C08F5 /* Build configuration list for PBXNativeTarget "Pods-SwineReaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B070F268BCFA126761A3F3A14758286B /* Debug */,
+				9F2576746F942482667737242B5328CE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
