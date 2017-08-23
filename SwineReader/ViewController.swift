@@ -47,60 +47,12 @@ class ViewController: UIViewController {
 
 		print("User: \(user), \(user.isValid())")
 		print("Avatar: \(avatar), \(avatar.isValid())")
-
-		/*
-		let userRepo = container.resolve(UserRepository.self)!
-		userRepo.getUser(uid: 42) { user, error in
-			if let user = user {
-				print("User: \(user)")
-			}
-			if let error = error {
-				print("Error: \(error)")
-			}
-		}
-		*/
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
 }
-
-/*
-protocol User {
-	var uid: Int { get set }
-	var username: String { get set }
-}
-
-class EmailUser: User {
-	var uid = -1
-	var username = ""
-	var email = ""
-}
-
-extension EmailUser: CustomStringConvertible {
-    var description: String {
-        return "EmailUser: (\(uid), \(username))"
-    }
-}
-
-typealias UserClosure = ((User?, Error?) -> Void)
-
-protocol UserRepository {
-	//var user: User { get set }
-	func getUser(uid: Int, closure: UserClosure)
-}
-
-class MockSuccessUserRepository: UserRepository {
-	//var user: User
-	func getUser(uid: Int, closure: UserClosure) {
-		let container = DependencyContainer.container
-		var user = container.resolve(User.self)!
-		user.uid = uid
-		closure(user, nil)
-	}
-}
-*/
 
 protocol Indexable {
 	var uid: Int { get set }
@@ -175,34 +127,9 @@ protocol Post: Presentable {
 	var title: String! { get set }
 }
 
-/*
-protocol Post {
-	var uid: Int { get set }
-	var title: String { get set }
-	init 
-	func create(title: String) -> Post
-	func show(uid: Int) -> Post
-}
-
-class MockPost: Post {
-	var uid = -1
-	var title = ""
-	init(title: String) {
-		self.title = title
-		uid = 1
-	}
-	func create(title: String) -> Post
-	func show(uid: Int) -> Post {
-		return self
-	}
-}
-*/
-
 class DependencyContainer {
 	static let container = Container()
 	static func setup() -> Container {
-		//container.register(UserRepository.self) { _ in MockSuccessUserRepository() }
-		//container.register(User.self) { _ in EmailUser() }
 		container.register(User.self) { _ in MockUser() }
 		container.register(Avatar.self) { _, user in MockAvatar(author: user) }
 		return container
