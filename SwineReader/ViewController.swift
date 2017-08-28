@@ -4,12 +4,47 @@ import Swinject
 public typealias ErrorClosure = ((Error?) -> Void)
 
 class ViewController: UIViewController {
+	
+	@IBOutlet var usernameTextField: UITextField!
+	@IBOutlet var debugTextView: UITextView!
+	
+	var user: User?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setup()
-		setupDI()
+		//setup()
+		//setupDI()
+		usernameTextField.becomeFirstResponder()
 	}
+
+	@IBAction func actionCreateUser() {
+		guard let username = usernameTextField.text, username != "" else {
+			self.showDebug(text: "WARNING: username cannot be empty")
+			return
+		}
+		
+		let newUser = DependencyContainer.newUser(username: username)
+		newUser.create { error in
+			self.showDebug(text: error == nil ? "user create successfully" : "WARNING: user create failed: \(error!.localizedDescription)")
+			self.user = newUser
+			DispatchQueue.main.async {
+				self.usernameTextField.text = ""
+			}
+		}
+	}
+	
+	func showDebug(text: String) {
+		debugTextView.text = (debugTextView.text ?? "") + "\n" + text
+		var y = debugTextView.contentSize.height - debugTextView.frame.size.height
+		y = y < 0 ? 0 : y
+		//y = y < debugTextView.frame.size.height ? 0 : y
+		debugTextView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
+	}
+
+	@IBAction func actionShowUserDetail() {
+		self.showDebug(text: user?.description ?? "WARNING: no user created yet")
+	}
+
 	func setup() {
 		let user = MockUser()
 		user.username = "test001"
@@ -36,10 +71,10 @@ class ViewController: UIViewController {
 		newUser.create()
 
 		let queriedAvatar = container.resolve(Avatar.self)!
-		queriedAvatar.show(uid: 42)
+		queriedAvatar.query(uid: 42)
 
 		let queriedUser = container.resolve(User.self)!
-		queriedUser.show(uid: 42)
+		queriedUser.query(uid: 42)
 
 		print("newUser - \(newUser)")
 		print("newAvatar - \(newAvatar)")
@@ -67,7 +102,7 @@ extension Indexable {
 
 protocol Presentable: Indexable {
 	func create(completion: ErrorClosure?)
-	func show(uid: Int)
+	func query(uid: Int)
 }
 
 extension Presentable {
@@ -76,7 +111,7 @@ extension Presentable {
 	}
 }
 
-protocol Avatar: Presentable {
+protocol Avatar: Presentable, CustomStringConvertible {
 	var imageURL: String { get set }
 	var author: User! { get set }
 	
@@ -101,20 +136,20 @@ class MockAvatar: Avatar {
 			closure(nil)
 		}
 	}
-	func show(uid: Int) {
+	func query(uid: Int) {
 		self.uid = uid
 		imageURL = String(format: "http://test.com/image%03d.png", uid)
 
 		var user = DependencyContainer.container.resolve(User.self)!
-		user.show(uid: 42)
+		user.query(uid: 42)
 		user.avatar = self
 		author = user
 	}
 }
 
-protocol User: Presentable {
+protocol User: Presentable, CustomStringConvertible {
 	var username: String! { get set }
-	var avatar: Avatar! { get set }
+	var avatar: Avatar? { get set }
 
 	init()
 	init(username: String)
@@ -123,7 +158,7 @@ protocol User: Presentable {
 class MockUser: User {
 	var uid = -1
 	var username: String!
-	var avatar: Avatar!
+	var avatar: Avatar?
 
 	required init() {
 	}
@@ -137,7 +172,7 @@ class MockUser: User {
 			closure(nil)
 		}
 	}
-	func show(uid: Int) {
+	func query(uid: Int) {
 		self.uid = uid
 		username = String(format: "test%03d", uid)
 
@@ -177,5 +212,9 @@ class DependencyContainer {
 		container.register(Avatar.self) { _ in MockAvatar() }
 		container.register(Avatar.self) { _, user in MockAvatar(author: user) }
 		return container
+	}
+
+	static func newUser(username: String) -> User {
+		return container.resolve(User.self, argument: username)!
 	}
 }

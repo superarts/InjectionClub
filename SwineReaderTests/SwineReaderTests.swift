@@ -15,7 +15,7 @@ class QueriedAvatarTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		queriedAvatar = DependencyContainer.setup().resolve(Avatar.self)!
-		queriedAvatar.show(uid: 42)
+		queriedAvatar.query(uid: 42)
     }
     override func tearDown() {
         super.tearDown()
@@ -39,7 +39,7 @@ class QueriedUserTests: XCTestCase {
     override func setUp() {
         super.setUp()
 		queriedUser = DependencyContainer.setup().resolve(User.self)!
-		queriedUser.show(uid: 42)
+		queriedUser.query(uid: 42)
     }
     override func tearDown() {
         super.tearDown()
@@ -52,7 +52,7 @@ class QueriedUserTests: XCTestCase {
 		XCTAssertNotNil(queriedUser.avatar)
 	}
     func testQueriedAvatarHasSelfAsAuthor() {
-		let user: User! = queriedUser.avatar.author
+		let user: User! = queriedUser.avatar?.author
 		XCTAssertTrue(user as AnyObject === queriedUser as AnyObject)
 	}
 }
@@ -84,6 +84,9 @@ class NewUserAndAvatarTests: XCTestCase {
 
     func testNewUserIsValid() {
 		XCTAssertTrue(newUser.isValid())
+    }
+    func testNewUserHasUsername() {
+		XCTAssertNotNil(newUser.username)
     }
     func testNewAvatarIsValid() {
 		XCTAssertTrue(newAvatar.isValid())
