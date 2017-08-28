@@ -105,15 +105,16 @@ class MockAvatar: Avatar {
 		self.uid = uid
 		imageURL = String(format: "http://test.com/image%03d.png", uid)
 
-		let user = DependencyContainer.container.resolve(User.self)!
+		var user = DependencyContainer.container.resolve(User.self)!
 		user.show(uid: 42)
+		user.avatar = self
 		author = user
 	}
 }
 
 protocol User: Presentable {
 	var username: String! { get set }
-	var avatar: Avatar? { get set }
+	var avatar: Avatar! { get set }
 
 	init()
 	init(username: String)
@@ -122,7 +123,7 @@ protocol User: Presentable {
 class MockUser: User {
 	var uid = -1
 	var username: String!
-	var avatar: Avatar?
+	var avatar: Avatar!
 
 	required init() {
 	}
