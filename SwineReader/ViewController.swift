@@ -12,8 +12,6 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		//setup()
-		//setupDI()
 		usernameTextField.becomeFirstResponder()
 	}
 
@@ -23,7 +21,7 @@ class ViewController: UIViewController {
 			return
 		}
 		
-		let newUser = DependencyContainer.newUser(username: username)
+		let newUser = DependencyContainer.initUser(username: username)
 		newUser.create { error in
 			self.showDebug(text: error == nil ? "user create successfully" : "WARNING: user create failed: \(error!.localizedDescription)")
 			self.user = newUser
@@ -33,55 +31,15 @@ class ViewController: UIViewController {
 		}
 	}
 	
-	func showDebug(text: String) {
-		debugTextView.text = (debugTextView.text ?? "") + "\n" + text
-		var y = debugTextView.contentSize.height - debugTextView.frame.size.height
-		y = y < 0 ? 0 : y
-		//y = y < debugTextView.frame.size.height ? 0 : y
-		debugTextView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
-	}
-
 	@IBAction func actionShowUserDetail() {
 		self.showDebug(text: user?.description ?? "WARNING: no user created yet")
 	}
 
-	func setup() {
-		let user = MockUser()
-		user.username = "test001"
-
-		let avatar = MockAvatar(author: user)
-		avatar.create()
-
-		user.avatar = avatar
-		user.create()
-
-		print("User - \(user)")
-		print("Avatar - \(avatar)")
-		print("----")
-	}
-	func setupDI() {
-		let container = DependencyContainer.setup()
-
-		var newUser = container.resolve(User.self, argument: "test001")!
-
-		let newAvatar = container.resolve(Avatar.self, argument: newUser)!
-		newAvatar.create()
-
-		newUser.avatar = newAvatar
-		newUser.create()
-
-		let queriedAvatar = container.resolve(Avatar.self)!
-		queriedAvatar.query(uid: 42)
-
-		let queriedUser = container.resolve(User.self)!
-		queriedUser.query(uid: 42)
-
-		print("newUser - \(newUser)")
-		print("newAvatar - \(newAvatar)")
-		print("queriedAvatar - \(queriedAvatar)")
-		print("queriedUser - \(queriedUser)")
-		print("queriedUser's avatar - \(String(describing: queriedUser.avatar))")
-		print("----")
+	func showDebug(text: String) {
+		debugTextView.text = (debugTextView.text ?? "") + "\n" + text
+		var y = debugTextView.contentSize.height - debugTextView.frame.size.height
+		y = y < 0 ? 0 : y
+		debugTextView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
 	}
 
 	override func didReceiveMemoryWarning() {
@@ -184,7 +142,7 @@ class MockUser: User {
 
 extension MockUser: CustomStringConvertible {
     var description: String {
-		return "MockUser \(debugAddr(self)):\n\tID: \(uid)\n\tusername: \(username)\n\tavatar: \(String(describing: debugAddr(avatar as Any)))\n\tvalidity: \(isValid())\n"
+		return "MockUser \(debugAddr(self)):\n\tID: \(uid)\n\tusername: \(username)\n\tavatar: \(avatar != nil ? avatar!.description : "nil")\n\tvalidity: \(isValid())\n"
     }
 }
 
@@ -196,10 +154,6 @@ extension MockAvatar: CustomStringConvertible {
 
 func debugAddr(_ obj: Any) -> UnsafeMutableRawPointer {
 	return Unmanaged<AnyObject>.passUnretained(obj as AnyObject).toOpaque()
-}
-
-protocol Post: Presentable {
-	var title: String! { get set }
 }
 
 class DependencyContainer {
@@ -214,7 +168,19 @@ class DependencyContainer {
 		return container
 	}
 
-	static func newUser(username: String) -> User {
+	static func initUser() -> User {
+		return container.resolve(User.self)!
+	}
+
+	static func initUser(username: String) -> User {
 		return container.resolve(User.self, argument: username)!
+	}
+
+	static func initAvatar() -> Avatar {
+		return container.resolve(Avatar.self)!
+	}
+
+	static func initAvatar(author: User) -> Avatar {
+		return container.resolve(Avatar.self, argument: author)!
 	}
 }

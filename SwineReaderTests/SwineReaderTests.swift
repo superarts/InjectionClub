@@ -14,7 +14,8 @@ class QueriedAvatarTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-		queriedAvatar = DependencyContainer.setup().resolve(Avatar.self)!
+		DependencyContainer.setup()
+		queriedAvatar = DependencyContainer.initAvatar()
 		queriedAvatar.query(uid: 42)
     }
     override func tearDown() {
@@ -38,7 +39,8 @@ class QueriedUserTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-		queriedUser = DependencyContainer.setup().resolve(User.self)!
+		DependencyContainer.setup()
+		queriedUser = DependencyContainer.initUser()
 		queriedUser.query(uid: 42)
     }
     override func tearDown() {
@@ -65,9 +67,55 @@ class NewUserAndAvatarTests: XCTestCase {
         super.setUp()
 		let exp = expectation(description: "\(#function)\(#line)")
 
-		let container = DependencyContainer.setup()
-		newUser = container.resolve(User.self, argument: "test001")!
-		newAvatar = container.resolve(Avatar.self, argument: newUser!)!
+		DependencyContainer.setup()
+		newUser = DependencyContainer.initUser(username: "test001")
+		newAvatar = DependencyContainer.initAvatar(author: newUser)
+
+		newAvatar.create(completion: { error in
+			self.newUser.avatar = self.newAvatar
+			self.newUser.create(completion: { error in
+				exp.fulfill()
+			})
+		})
+
+		waitForExpectations(timeout: 60, handler: nil)
+	}
+    override func tearDown() {
+        super.tearDown()
+    }
+
+    func testNewUserIsValid() {
+		XCTAssertTrue(newUser.isValid())
+    }
+    func testNewUserHasUsername() {
+		XCTAssertNotNil(newUser.username)
+    }
+    func testNewAvatarIsValid() {
+		XCTAssertTrue(newAvatar.isValid())
+    }
+    func testNewAvatarHasNewUser() {
+		let author: User! = newAvatar.author
+		XCTAssertTrue(author as AnyObject === newUser as AnyObject)
+	}
+    func testNewUserHasNewAvatar() {
+		let avatar: Avatar! = newUser.avatar
+		XCTAssertTrue(avatar as AnyObject === newAvatar as AnyObject)
+	}
+}
+
+class NewUserAndAvatarWithoutDITests: XCTestCase {
+	var newUser: User!
+	var newAvatar: Avatar!
+
+    override func setUp() {
+        super.setUp()
+		let exp = expectation(description: "\(#function)\(#line)")
+
+		let userType: User.Type = MockUser.self
+		let avatarType: Avatar.Type = MockAvatar.self
+
+		newUser = userType.init(username: "test001")
+		newAvatar = avatarType.init(author: newUser)
 
 		newAvatar.create(completion: { error in
 			self.newUser.avatar = self.newAvatar
