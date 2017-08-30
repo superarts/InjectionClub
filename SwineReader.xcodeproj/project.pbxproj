@@ -15,6 +15,26 @@
 		B32659A31F4CC4B2005CEF01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32659A11F4CC4B2005CEF01 /* LaunchScreen.storyboard */; };
 		B32659AE1F4CC4B2005CEF01 /* SwineReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659AD1F4CC4B2005CEF01 /* SwineReaderTests.swift */; };
 		B32659B81F4E1992005CEF01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* ViewController.swift */; };
+		B32659BF1F562045005CEF01 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BA1F562045005CEF01 /* Avatar.swift */; };
+		B32659C01F562045005CEF01 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BA1F562045005CEF01 /* Avatar.swift */; };
+		B32659C11F562045005CEF01 /* Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BB1F562045005CEF01 /* Indexable.swift */; };
+		B32659C21F562045005CEF01 /* Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BB1F562045005CEF01 /* Indexable.swift */; };
+		B32659C31F562045005CEF01 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BC1F562045005CEF01 /* Presentable.swift */; };
+		B32659C41F562045005CEF01 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BC1F562045005CEF01 /* Presentable.swift */; };
+		B32659C51F562045005CEF01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BD1F562045005CEF01 /* User.swift */; };
+		B32659C61F562045005CEF01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BD1F562045005CEF01 /* User.swift */; };
+		B32659C71F562045005CEF01 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BE1F562045005CEF01 /* Util.swift */; };
+		B32659C81F562045005CEF01 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BE1F562045005CEF01 /* Util.swift */; };
+		B32659CA1F570F78005CEF01 /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659C91F570F78005CEF01 /* DIManager.swift */; };
+		B32659CB1F570F78005CEF01 /* DIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659C91F570F78005CEF01 /* DIManager.swift */; };
+		B32659CF1F570F85005CEF01 /* MockAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659CD1F570F85005CEF01 /* MockAvatar.swift */; };
+		B32659D01F570F85005CEF01 /* MockAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659CD1F570F85005CEF01 /* MockAvatar.swift */; };
+		B32659D11F570F85005CEF01 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659CE1F570F85005CEF01 /* MockUser.swift */; };
+		B32659D21F570F85005CEF01 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659CE1F570F85005CEF01 /* MockUser.swift */; };
+		B32659D51F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D31F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift */; };
+		B32659D61F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D31F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift */; };
+		B32659D71F571040005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */; };
+		B32659D81F571041005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */; };
 		D7F20D2E1A7228A26FA79F45 /* Pods_SwineReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C8050B4B684E138999FC77 /* Pods_SwineReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +62,16 @@
 		B32659A91F4CC4B2005CEF01 /* SwineReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwineReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32659AD1F4CC4B2005CEF01 /* SwineReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwineReaderTests.swift; sourceTree = "<group>"; };
 		B32659AF1F4CC4B2005CEF01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B32659BA1F562045005CEF01 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		B32659BB1F562045005CEF01 /* Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indexable.swift; sourceTree = "<group>"; };
+		B32659BC1F562045005CEF01 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		B32659BD1F562045005CEF01 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B32659BE1F562045005CEF01 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		B32659C91F570F78005CEF01 /* DIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
+		B32659CD1F570F85005CEF01 /* MockAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAvatar.swift; sourceTree = "<group>"; };
+		B32659CE1F570F85005CEF01 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		B32659D31F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MockAvatar+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MockUser+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		DF9581CBC76582025D14508B /* Pods-SwineReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwineReaderTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9C8050B4B684E138999FC77 /* Pods_SwineReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwineReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E556A6E3908FEF410D7519 /* Pods-SwineReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwineReaderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwineReaderTests/Pods-SwineReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,7 +129,10 @@
 		B32659971F4CC4B2005CEF01 /* SwineReader */ = {
 			isa = PBXGroup;
 			children = (
+				B32659CC1F570F85005CEF01 /* Models */,
+				B32659B91F562045005CEF01 /* Protocols */,
 				B32659981F4CC4B2005CEF01 /* AppDelegate.swift */,
+				B32659C91F570F78005CEF01 /* DIManager.swift */,
 				B326599A1F4CC4B2005CEF01 /* ViewController.swift */,
 				B326599C1F4CC4B2005CEF01 /* Main.storyboard */,
 				B326599F1F4CC4B2005CEF01 /* Assets.xcassets */,
@@ -116,6 +149,29 @@
 				B32659AF1F4CC4B2005CEF01 /* Info.plist */,
 			);
 			path = SwineReaderTests;
+			sourceTree = "<group>";
+		};
+		B32659B91F562045005CEF01 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B32659BA1F562045005CEF01 /* Avatar.swift */,
+				B32659BB1F562045005CEF01 /* Indexable.swift */,
+				B32659BC1F562045005CEF01 /* Presentable.swift */,
+				B32659BD1F562045005CEF01 /* User.swift */,
+				B32659BE1F562045005CEF01 /* Util.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B32659CC1F570F85005CEF01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B32659CD1F570F85005CEF01 /* MockAvatar.swift */,
+				B32659D31F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift */,
+				B32659CE1F570F85005CEF01 /* MockUser.swift */,
+				B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C40A0F76226071AF7F8023D0 /* Pods */ = {
@@ -331,7 +387,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32659D11F570F85005CEF01 /* MockUser.swift in Sources */,
+				B32659BF1F562045005CEF01 /* Avatar.swift in Sources */,
 				B326599B1F4CC4B2005CEF01 /* ViewController.swift in Sources */,
+				B32659D51F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */,
+				B32659D71F571040005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */,
+				B32659CA1F570F78005CEF01 /* DIManager.swift in Sources */,
+				B32659C51F562045005CEF01 /* User.swift in Sources */,
+				B32659C11F562045005CEF01 /* Indexable.swift in Sources */,
+				B32659C71F562045005CEF01 /* Util.swift in Sources */,
+				B32659C31F562045005CEF01 /* Presentable.swift in Sources */,
+				B32659CF1F570F85005CEF01 /* MockAvatar.swift in Sources */,
 				B32659991F4CC4B2005CEF01 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,7 +406,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B32659D21F570F85005CEF01 /* MockUser.swift in Sources */,
+				B32659C01F562045005CEF01 /* Avatar.swift in Sources */,
 				B32659B81F4E1992005CEF01 /* ViewController.swift in Sources */,
+				B32659D61F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */,
+				B32659D81F571041005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */,
+				B32659CB1F570F78005CEF01 /* DIManager.swift in Sources */,
+				B32659C61F562045005CEF01 /* User.swift in Sources */,
+				B32659C21F562045005CEF01 /* Indexable.swift in Sources */,
+				B32659C81F562045005CEF01 /* Util.swift in Sources */,
+				B32659C41F562045005CEF01 /* Presentable.swift in Sources */,
+				B32659D01F570F85005CEF01 /* MockAvatar.swift in Sources */,
 				B32659AE1F4CC4B2005CEF01 /* SwineReaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,8 +14,8 @@ class QueriedAvatarTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-		DependencyContainer.setup()
-		queriedAvatar = DependencyContainer.initAvatar()
+		DIManager.setup()
+		queriedAvatar = DIManager.initAvatar()
 		queriedAvatar.query(uid: 42)
     }
     override func tearDown() {
@@ -39,8 +39,8 @@ class QueriedUserTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-		DependencyContainer.setup()
-		queriedUser = DependencyContainer.initUser()
+		DIManager.setup()
+		queriedUser = DIManager.initUser()
 		queriedUser.query(uid: 42)
     }
     override func tearDown() {
@@ -67,9 +67,9 @@ class NewUserAndAvatarTests: XCTestCase {
         super.setUp()
 		let exp = expectation(description: "\(#function)\(#line)")
 
-		DependencyContainer.setup()
-		newUser = DependencyContainer.initUser(username: "test001")
-		newAvatar = DependencyContainer.initAvatar(author: newUser)
+		DIManager.setup()
+		newUser = DIManager.initUser(username: "test001")
+		newAvatar = DIManager.initAvatar(author: newUser)
 
 		newAvatar.create(completion: { error in
 			self.newUser.avatar = self.newAvatar
@@ -154,7 +154,7 @@ class PerformanceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-		DependencyContainer.setup()
+		DIManager.setup()
     }
     override func tearDown() {
         super.tearDown()
@@ -163,14 +163,14 @@ class PerformanceTests: XCTestCase {
     func testPerformanceSetup() {
         self.measure {
 			for _ in 0 ..< self.kLoop {
-				DependencyContainer.setup()
+				DIManager.setup()
 			}
         }
     }
     func testPerformanceResolve() {
         self.measure {
 			for _ in 0 ..< self.kLoop {
-				let _ = DependencyContainer.container.resolve(Avatar.self)!
+				let _ = DIManager.container.resolve(Avatar.self)!
 			}
         }
     }
