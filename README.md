@@ -4,4 +4,4 @@ Injection Club decided to hire me to build an App `Injection Club` for their mem
 
 ### Disclaimer
 
-This project is for demostration purpose only. The word "injection" suggests it has something to do with `Swinject`, a `Swift` `Dependency Injection` framework. The author is not actually hired by Injection Club.
+This project is for demostration purpose only. The word "injection" suggests it has something to do with `Swinject`, a `Swift` `Dependency Injection` framework. The author was not actually hired by Injection Club.
