@@ -1,0 +1,6 @@
+framework module Pods_InjectionClub {
+  umbrella header "Pods-InjectionClub-umbrella.h"
+
+  export *
+  module * { export * }
+}

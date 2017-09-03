@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="InjectionClub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-bX-wQM">
+                                <rect key="frame" x="20" y="40" width="335" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WrC-aM-13N"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgR-8U-t9h">
+                                <rect key="frame" x="20" y="104" width="335" height="44"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="93g-bu-0P4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="CREATE USER"/>
+                                <connections>
+                                    <action selector="actionCreateUser" destination="BYZ-38-t0r" eventType="touchUpInside" id="1CQ-ot-Kmz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwp-Fy-flk">
+                                <rect key="frame" x="20" y="168" width="335" height="44"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6OD-vZ-Fqr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="SHOW USER DETAIL"/>
+                                <connections>
+                                    <action selector="actionShowUserDetail" destination="BYZ-38-t0r" eventType="touchUpInside" id="ACj-0u-fLw"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XV8-py-clU">
+                                <rect key="frame" x="20" y="232" width="335" height="219"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Debug messages:
+----</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5dz-bX-wQM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="7hj-SR-iC7"/>
+                            <constraint firstAttribute="trailing" secondItem="XV8-py-clU" secondAttribute="trailing" constant="20" id="7z0-kg-Uzd"/>
+                            <constraint firstAttribute="trailing" secondItem="pwp-Fy-flk" secondAttribute="trailing" constant="20" id="Lcd-0q-FID"/>
+                            <constraint firstItem="DgR-8U-t9h" firstAttribute="top" secondItem="5dz-bX-wQM" secondAttribute="bottom" constant="20" id="Pty-aq-s7v"/>
+                            <constraint firstItem="5dz-bX-wQM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="RkD-Tw-OCX"/>
+                            <constraint firstItem="pwp-Fy-flk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Rlf-ho-M6E"/>
+                            <constraint firstItem="pwp-Fy-flk" firstAttribute="top" secondItem="DgR-8U-t9h" secondAttribute="bottom" constant="20" id="Zij-RT-nV9"/>
+                            <constraint firstItem="XV8-py-clU" firstAttribute="top" secondItem="pwp-Fy-flk" secondAttribute="bottom" constant="20" id="cQt-yo-4wp"/>
+                            <constraint firstItem="XV8-py-clU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="j6Z-8R-9lB"/>
+                            <constraint firstItem="DgR-8U-t9h" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="l4Z-2b-SCH"/>
+                            <constraint firstAttribute="trailing" secondItem="DgR-8U-t9h" secondAttribute="trailing" constant="20" id="pxg-dH-Lpb"/>
+                            <constraint firstAttribute="trailing" secondItem="5dz-bX-wQM" secondAttribute="trailing" constant="20" id="qeJ-vT-ASF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XV8-py-clU" secondAttribute="bottom" constant="216" id="ylo-uY-gIz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="debugTextView" destination="XV8-py-clU" id="jdU-6A-8A5"/>
+                        <outlet property="usernameTextField" destination="5dz-bX-wQM" id="LS8-K2-DWG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
