@@ -1,6 +1,0 @@
-framework module Pods_SwineReaderTests {
-  umbrella header "Pods-SwineReaderTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

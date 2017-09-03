@@ -3,7 +3,7 @@ Audience Level: Intermediate
 Style: Core Concept
 Prerequisites: Interface-based Programming, SOLID Principles, UIKit Basic
 Most important concepts: Dependency Inversion Principle, Dependency Injection
-Sample app name: Swine Reader
+Sample app name: Injection Club
 Sample app description: An app with basic UI shows how to design data model interfaces, and using DI with mock classes to tests
 
   * Introduction

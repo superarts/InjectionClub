@@ -2,10 +2,10 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target 'SwineReader' do
+target 'InjectionClub' do
 	pod 'Swinject', '~> 2.1.0'
 end
-target 'SwineReaderTests' do
+target 'InjectionClubTests' do
 	pod 'Swinject', '~> 2.1.0'
 end
 
