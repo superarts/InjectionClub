@@ -28,33 +28,48 @@
 * THE SOFTWARE.
 */
 
-import Swinject
+import UIKit
 
-struct DIManager {
-  static let container = Container()
+class UserViewController: UIViewController {
   
-  @discardableResult
-  static func setup() -> Container {
-    container.register(User.self) { _ in MockUser() }
-    container.register(User.self) { _, username in MockUser(username: username) }
-    container.register(Avatar.self) { _ in MockAvatar() }
-    container.register(Avatar.self) { _, user in MockAvatar(author: user) }
-    return container
+  @IBOutlet var usernameTextField: UITextField!
+  @IBOutlet var debugTextView: UITextView!
+  
+  var user: User?
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    usernameTextField.becomeFirstResponder()
   }
   
-  static func initUser() -> User {
-    return container.resolve(User.self)!
+  @IBAction func actionCreateUser() {
+    guard let username = usernameTextField.text, username != "" else {
+      self.showDebug(text: "WARNING: username cannot be empty")
+      return
+    }
+    
+    let newUser = DIManager.initUser(username: username)
+    newUser.create { error in
+      self.showDebug(text: error == nil ? "user create successfully" : "WARNING: user create failed: \(error!.localizedDescription)")
+      self.user = newUser
+      DispatchQueue.main.async {
+        self.usernameTextField.text = ""
+      }
+    }
   }
   
-  static func initUser(username: String) -> User {
-    return container.resolve(User.self, argument: username)!
+  @IBAction func actionShowUserDetail() {
+    self.showDebug(text: user?.description ?? "WARNING: no user created yet")
   }
   
-  static func initAvatar() -> Avatar {
-    return container.resolve(Avatar.self)!
+  func showDebug(text: String) {
+    debugTextView.text = (debugTextView.text ?? "") + "\n" + text
+    var y = debugTextView.contentSize.height - debugTextView.frame.size.height
+    y = y < 0 ? 0 : y
+    debugTextView.setContentOffset(CGPoint(x: 0, y: y), animated: true)
   }
   
-  static func initAvatar(author: User) -> Avatar {
-    return container.resolve(Avatar.self, argument: author)!
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
   }
 }

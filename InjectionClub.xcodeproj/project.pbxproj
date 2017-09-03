@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		44C71353DA56C0AAB9B56F9C /* Pods_InjectionClubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2654AE98FB401DD9B783DEEA /* Pods_InjectionClubTests.framework */; };
 		B32659991F4CC4B2005CEF01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659981F4CC4B2005CEF01 /* AppDelegate.swift */; };
-		B326599B1F4CC4B2005CEF01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* ViewController.swift */; };
+		B326599B1F4CC4B2005CEF01 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* UserViewController.swift */; };
 		B326599E1F4CC4B2005CEF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B326599C1F4CC4B2005CEF01 /* Main.storyboard */; };
 		B32659A01F4CC4B2005CEF01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B326599F1F4CC4B2005CEF01 /* Assets.xcassets */; };
 		B32659A31F4CC4B2005CEF01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32659A11F4CC4B2005CEF01 /* LaunchScreen.storyboard */; };
 		B32659AE1F4CC4B2005CEF01 /* InjectionClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659AD1F4CC4B2005CEF01 /* InjectionClubTests.swift */; };
-		B32659B81F4E1992005CEF01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* ViewController.swift */; };
+		B32659B81F4E1992005CEF01 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* UserViewController.swift */; };
 		B32659BF1F562045005CEF01 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BA1F562045005CEF01 /* Avatar.swift */; };
 		B32659C01F562045005CEF01 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BA1F562045005CEF01 /* Avatar.swift */; };
 		B32659C11F562045005CEF01 /* Indexable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BB1F562045005CEF01 /* Indexable.swift */; };
@@ -54,7 +54,7 @@
 		6C7E9A1E01A5DC0F60D4C0D9 /* Pods-InjectionClub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InjectionClub.release.xcconfig"; path = "Pods/Target Support Files/Pods-InjectionClub/Pods-InjectionClub.release.xcconfig"; sourceTree = "<group>"; };
 		B32659951F4CC4B2005CEF01 /* InjectionClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InjectionClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32659981F4CC4B2005CEF01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B326599A1F4CC4B2005CEF01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B326599A1F4CC4B2005CEF01 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		B326599D1F4CC4B2005CEF01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B326599F1F4CC4B2005CEF01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B32659A21F4CC4B2005CEF01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				B32659B91F562045005CEF01 /* Protocols */,
 				B32659981F4CC4B2005CEF01 /* AppDelegate.swift */,
 				B32659C91F570F78005CEF01 /* DIManager.swift */,
-				B326599A1F4CC4B2005CEF01 /* ViewController.swift */,
+				B326599A1F4CC4B2005CEF01 /* UserViewController.swift */,
 				B326599C1F4CC4B2005CEF01 /* Main.storyboard */,
 				B326599F1F4CC4B2005CEF01 /* Assets.xcassets */,
 				B32659A11F4CC4B2005CEF01 /* LaunchScreen.storyboard */,
@@ -389,7 +389,7 @@
 			files = (
 				B32659D11F570F85005CEF01 /* MockUser.swift in Sources */,
 				B32659BF1F562045005CEF01 /* Avatar.swift in Sources */,
-				B326599B1F4CC4B2005CEF01 /* ViewController.swift in Sources */,
+				B326599B1F4CC4B2005CEF01 /* UserViewController.swift in Sources */,
 				B32659D51F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */,
 				B32659D71F571040005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */,
 				B32659CA1F570F78005CEF01 /* DIManager.swift in Sources */,
@@ -408,7 +408,7 @@
 			files = (
 				B32659D21F570F85005CEF01 /* MockUser.swift in Sources */,
 				B32659C01F562045005CEF01 /* Avatar.swift in Sources */,
-				B32659B81F4E1992005CEF01 /* ViewController.swift in Sources */,
+				B32659B81F4E1992005CEF01 /* UserViewController.swift in Sources */,
 				B32659D61F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */,
 				B32659D81F571041005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */,
 				B32659CB1F570F78005CEF01 /* DIManager.swift in Sources */,
