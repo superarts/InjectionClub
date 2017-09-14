@@ -66,7 +66,7 @@
 		B32659BB1F562045005CEF01 /* Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indexable.swift; sourceTree = "<group>"; };
 		B32659BC1F562045005CEF01 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		B32659BD1F562045005CEF01 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		B32659BE1F562045005CEF01 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		B32659BE1F562045005CEF01 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Util.swift; path = Protocols/Util.swift; sourceTree = "<group>"; };
 		B32659C91F570F78005CEF01 /* DIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIManager.swift; sourceTree = "<group>"; };
 		B32659CD1F570F85005CEF01 /* MockAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAvatar.swift; sourceTree = "<group>"; };
 		B32659CE1F570F85005CEF01 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
@@ -134,6 +134,7 @@
 				B32659981F4CC4B2005CEF01 /* AppDelegate.swift */,
 				B32659C91F570F78005CEF01 /* DIManager.swift */,
 				B326599A1F4CC4B2005CEF01 /* UserViewController.swift */,
+				B32659BE1F562045005CEF01 /* Util.swift */,
 				B326599C1F4CC4B2005CEF01 /* Main.storyboard */,
 				B326599F1F4CC4B2005CEF01 /* Assets.xcassets */,
 				B32659A11F4CC4B2005CEF01 /* LaunchScreen.storyboard */,
@@ -154,11 +155,10 @@
 		B32659B91F562045005CEF01 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				B32659BA1F562045005CEF01 /* Avatar.swift */,
 				B32659BB1F562045005CEF01 /* Indexable.swift */,
 				B32659BC1F562045005CEF01 /* Presentable.swift */,
+				B32659BA1F562045005CEF01 /* Avatar.swift */,
 				B32659BD1F562045005CEF01 /* User.swift */,
-				B32659BE1F562045005CEF01 /* Util.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";

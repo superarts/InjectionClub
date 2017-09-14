@@ -31,14 +31,14 @@
 class MockUser: User {
   var uid = -1
   var username: String!
-  var avatar: Avatar?
+  weak var avatar: Avatar?
   
   required init() {
   }
   required init(username: String) {
     self.username = username
   }
-  
+ 
   func create(completion: ErrorClosure? = nil) {
     uid = 1
     if let closure = completion {

@@ -41,7 +41,9 @@ struct DIManager {
     container.register(Avatar.self) { _, user in MockAvatar(author: user) }
     return container
   }
-  
+}
+
+extension DIManager {
   static func initUser() -> User {
     return container.resolve(User.self)!
   }
