@@ -13,7 +13,7 @@
 		B326599E1F4CC4B2005CEF01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B326599C1F4CC4B2005CEF01 /* Main.storyboard */; };
 		B32659A01F4CC4B2005CEF01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B326599F1F4CC4B2005CEF01 /* Assets.xcassets */; };
 		B32659A31F4CC4B2005CEF01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B32659A11F4CC4B2005CEF01 /* LaunchScreen.storyboard */; };
-		B32659AE1F4CC4B2005CEF01 /* InjectionClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659AD1F4CC4B2005CEF01 /* InjectionClubTests.swift */; };
+		B32659AE1F4CC4B2005CEF01 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659AD1F4CC4B2005CEF01 /* PerformanceTests.swift */; };
 		B32659B81F4E1992005CEF01 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B326599A1F4CC4B2005CEF01 /* UserViewController.swift */; };
 		B32659BF1F562045005CEF01 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BA1F562045005CEF01 /* Avatar.swift */; };
 		B32659C01F562045005CEF01 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659BA1F562045005CEF01 /* Avatar.swift */; };
@@ -35,6 +35,10 @@
 		B32659D61F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D31F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift */; };
 		B32659D71F571040005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */; };
 		B32659D81F571041005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */; };
+		B339CC551F6D913500009BFC /* NewUserAndAvatarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CC511F6D913500009BFC /* NewUserAndAvatarTests.swift */; };
+		B339CC561F6D913500009BFC /* NewUserAndAvatarWithoutSwinjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CC521F6D913500009BFC /* NewUserAndAvatarWithoutSwinjectTests.swift */; };
+		B339CC571F6D913500009BFC /* QueriedAvatarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CC531F6D913500009BFC /* QueriedAvatarTests.swift */; };
+		B339CC581F6D913500009BFC /* QueriedUserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339CC541F6D913500009BFC /* QueriedUserTests.swift */; };
 		D7F20D2E1A7228A26FA79F45 /* Pods_InjectionClub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9C8050B4B684E138999FC77 /* Pods_InjectionClub.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +64,7 @@
 		B32659A21F4CC4B2005CEF01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B32659A41F4CC4B2005CEF01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B32659A91F4CC4B2005CEF01 /* InjectionClubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InjectionClubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B32659AD1F4CC4B2005CEF01 /* InjectionClubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectionClubTests.swift; sourceTree = "<group>"; };
+		B32659AD1F4CC4B2005CEF01 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 		B32659AF1F4CC4B2005CEF01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B32659BA1F562045005CEF01 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		B32659BB1F562045005CEF01 /* Indexable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Indexable.swift; sourceTree = "<group>"; };
@@ -72,6 +76,10 @@
 		B32659CE1F570F85005CEF01 /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 		B32659D31F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MockAvatar+CustomStringConvertible.swift"; sourceTree = "<group>"; };
 		B32659D41F571040005CEF01 /* MockUser+CustomStringConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MockUser+CustomStringConvertible.swift"; sourceTree = "<group>"; };
+		B339CC511F6D913500009BFC /* NewUserAndAvatarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserAndAvatarTests.swift; sourceTree = "<group>"; };
+		B339CC521F6D913500009BFC /* NewUserAndAvatarWithoutSwinjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserAndAvatarWithoutSwinjectTests.swift; sourceTree = "<group>"; };
+		B339CC531F6D913500009BFC /* QueriedAvatarTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueriedAvatarTests.swift; sourceTree = "<group>"; };
+		B339CC541F6D913500009BFC /* QueriedUserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueriedUserTests.swift; sourceTree = "<group>"; };
 		DF9581CBC76582025D14508B /* Pods-InjectionClubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InjectionClubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InjectionClubTests/Pods-InjectionClubTests.release.xcconfig"; sourceTree = "<group>"; };
 		F9C8050B4B684E138999FC77 /* Pods_InjectionClub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InjectionClub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E556A6E3908FEF410D7519 /* Pods-InjectionClubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InjectionClubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InjectionClubTests/Pods-InjectionClubTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -146,7 +154,11 @@
 		B32659AC1F4CC4B2005CEF01 /* InjectionClubTests */ = {
 			isa = PBXGroup;
 			children = (
-				B32659AD1F4CC4B2005CEF01 /* InjectionClubTests.swift */,
+				B339CC511F6D913500009BFC /* NewUserAndAvatarTests.swift */,
+				B339CC521F6D913500009BFC /* NewUserAndAvatarWithoutSwinjectTests.swift */,
+				B339CC531F6D913500009BFC /* QueriedAvatarTests.swift */,
+				B339CC541F6D913500009BFC /* QueriedUserTests.swift */,
+				B32659AD1F4CC4B2005CEF01 /* PerformanceTests.swift */,
 				B32659AF1F4CC4B2005CEF01 /* Info.plist */,
 			);
 			path = InjectionClubTests;
@@ -408,16 +420,20 @@
 			files = (
 				B32659D21F570F85005CEF01 /* MockUser.swift in Sources */,
 				B32659C01F562045005CEF01 /* Avatar.swift in Sources */,
+				B339CC581F6D913500009BFC /* QueriedUserTests.swift in Sources */,
 				B32659B81F4E1992005CEF01 /* UserViewController.swift in Sources */,
 				B32659D61F571040005CEF01 /* MockAvatar+CustomStringConvertible.swift in Sources */,
+				B339CC561F6D913500009BFC /* NewUserAndAvatarWithoutSwinjectTests.swift in Sources */,
 				B32659D81F571041005CEF01 /* MockUser+CustomStringConvertible.swift in Sources */,
 				B32659CB1F570F78005CEF01 /* DIManager.swift in Sources */,
 				B32659C61F562045005CEF01 /* User.swift in Sources */,
 				B32659C21F562045005CEF01 /* Indexable.swift in Sources */,
 				B32659C81F562045005CEF01 /* Util.swift in Sources */,
+				B339CC551F6D913500009BFC /* NewUserAndAvatarTests.swift in Sources */,
 				B32659C41F562045005CEF01 /* Presentable.swift in Sources */,
+				B339CC571F6D913500009BFC /* QueriedAvatarTests.swift in Sources */,
 				B32659D01F570F85005CEF01 /* MockAvatar.swift in Sources */,
-				B32659AE1F4CC4B2005CEF01 /* InjectionClubTests.swift in Sources */,
+				B32659AE1F4CC4B2005CEF01 /* PerformanceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

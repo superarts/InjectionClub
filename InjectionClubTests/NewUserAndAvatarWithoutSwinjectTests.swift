@@ -28,32 +28,51 @@
 * THE SOFTWARE.
 */
 
-class MockUser: User {
-  var uid = -1
-  var username: String!
-  weak var avatar: Avatar?
-	
-  required init() {
-  }
-  required init(username: String) {
-    self.username = username
-  }
- 
-  func create(completion: ErrorClosure? = nil) {
-    uid = 1
-    if let closure = completion {
-      closure(nil)
-    }
-  }
-	
-  private var _avatar: Avatar?
-  func query(uid: Int) {
-    self.uid = uid
-    username = String(format: "test%03d", uid)
+import XCTest
+@testable import InjectionClub
+
+class NewUserAndAvatarWithoutSwinjectTests: XCTestCase {
+  var newUser: User!
+  var newAvatar: Avatar!
+  
+  override func setUp() {
+    super.setUp()
+    let exp = expectation(description: "\(#function)\(#line)")
     
-    let avatar = DIManager.initAvatar(author: self)
-    avatar.create()
-    _avatar = avatar
-    self.avatar = avatar
+    let userType: User.Type = MockUser.self
+    let avatarType: Avatar.Type = MockAvatar.self
+    
+    newUser = userType.init(username: "test001")
+    newAvatar = avatarType.init(author: newUser)
+    
+    newAvatar.create(completion: { error in
+      self.newUser.avatar = self.newAvatar
+      self.newUser.create(completion: { error in
+        exp.fulfill()
+      })
+    })
+    
+    waitForExpectations(timeout: 60, handler: nil)
+  }
+  override func tearDown() {
+    super.tearDown()
+  }
+  
+  func testNewUserIsValid() {
+    XCTAssertTrue(newUser.isValid())
+  }
+  func testNewUserHasUsername() {
+    XCTAssertNotNil(newUser.username)
+  }
+  func testNewAvatarIsValid() {
+    XCTAssertTrue(newAvatar.isValid())
+  }
+  func testNewAvatarHasNewUser() {
+    let author: User! = newAvatar.author
+    XCTAssertTrue(author as AnyObject === newUser as AnyObject)
+  }
+  func testNewUserHasNewAvatar() {
+    let avatar: Avatar! = newUser.avatar
+    XCTAssertTrue(avatar as AnyObject === newAvatar as AnyObject)
   }
 }

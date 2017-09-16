@@ -28,32 +28,45 @@
 * THE SOFTWARE.
 */
 
-class MockUser: User {
-  var uid = -1
-  var username: String!
-  weak var avatar: Avatar?
-	
-  required init() {
+import XCTest
+@testable import InjectionClub
+
+class PerformanceTests: XCTestCase {
+  let kLoop = 10000
+  
+  override func setUp() {
+    super.setUp()
+    DIManager.setup()
   }
-  required init(username: String) {
-    self.username = username
+  override func tearDown() {
+    super.tearDown()
   }
- 
-  func create(completion: ErrorClosure? = nil) {
-    uid = 1
-    if let closure = completion {
-      closure(nil)
+  
+  func testPerformanceSetup() {
+    self.measure {
+      for _ in 0 ..< self.kLoop {
+        DIManager.setup()
+      }
     }
   }
-	
-  private var _avatar: Avatar?
-  func query(uid: Int) {
-    self.uid = uid
-    username = String(format: "test%03d", uid)
-    
-    let avatar = DIManager.initAvatar(author: self)
-    avatar.create()
-    _avatar = avatar
-    self.avatar = avatar
+  func testPerformanceResolve() {
+    self.measure {
+      for _ in 0 ..< self.kLoop {
+        let _ = DIManager.container.resolve(Avatar.self)!
+      }
+    }
+  }
+  func testPerformanceCompare() {
+    self.measure {
+      for _ in 0 ..< self.kLoop {
+        let _ = MockAvatar()
+      }
+    }
+  }
+  func testPerformanceEmpty() {
+    self.measure {
+      for _ in 1 ..< 10000 {
+      }
+    }
   }
 }

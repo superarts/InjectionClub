@@ -28,32 +28,30 @@
 * THE SOFTWARE.
 */
 
-class MockUser: User {
-  var uid = -1
-  var username: String!
-  weak var avatar: Avatar?
-	
-  required init() {
+import XCTest
+@testable import InjectionClub
+
+class QueriedAvatarTests: XCTestCase {
+  var queriedAvatar: Avatar!
+  
+  override func setUp() {
+    super.setUp()
+    DIManager.setup()
+    queriedAvatar = DIManager.initAvatar()
+    queriedAvatar.query(uid: 42)
   }
-  required init(username: String) {
-    self.username = username
+  override func tearDown() {
+    super.tearDown()
   }
- 
-  func create(completion: ErrorClosure? = nil) {
-    uid = 1
-    if let closure = completion {
-      closure(nil)
-    }
+  
+  func testQueriedAvatarIsValid() {
+    XCTAssertTrue(queriedAvatar.isValid())
   }
-	
-  private var _avatar: Avatar?
-  func query(uid: Int) {
-    self.uid = uid
-    username = String(format: "test%03d", uid)
-    
-    let avatar = DIManager.initAvatar(author: self)
-    avatar.create()
-    _avatar = avatar
-    self.avatar = avatar
+  func testQueriedAuthorIsNotNil() {
+    XCTAssertNotNil(queriedAvatar.author)
+  }
+  func testQueriedAuthorHasSelfAsAvatar() {
+    let avatar: Avatar! = queriedAvatar.author.avatar!
+    XCTAssertTrue(avatar as AnyObject === queriedAvatar as AnyObject)
   }
 }
