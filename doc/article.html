@@ -1,0 +1,622 @@
+<h2>Introduction</h2>
+
+<img src="https://www.gameartguppy.com/wp-content/uploads/2017/06/object-syringe-inject.png" alt="" width="250" height="250" class="alignright size-full wp-image-171791" />
+
+The idea <em>Dependency Injection</em> comes from <a href="https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29">The SOLID principles</a>, which play a big part in modern software engineering. These concepts are fairly straightforward. But when it comes to actual architecting and coding, a bit tutorial is still nice to help start applying those principles to your projects.
+
+This tutorial is focusing on the last one of the SOLID principles: <em>Dependency Inversion Principle</em>.
+
+Wait... Do we have to start with theory first? Well not really, let's take a look at a simple example.
+
+<h3>Starting with an example: Profile with Address</h3>
+
+<pre lang="swift">
+class Address {
+  public var street: String!
+  public var city: String!
+  public var state: String!
+}
+
+class Profile {
+  public var address: Address!
+  public var displayAddress: String {
+    return address.street + " " + address.city + " " + address.state
+  }
+}
+</pre>
+
+Suppose you have a <code>Profile</code> class, which contains an <code>Address</code> class as one of its properties. Suppose you want to show a human friendly <code>displayAddress</code> of a <code>Profile</code>.
+
+It works for now, no doubt, but what if one day you are going to support foreign addresses? In Singapore there is no such thing as "state", and in China there is one more "district" level under "city". So if our business logic expands in future, both <code>Address</code> and <code>Profile</code> are very likely to change. Is there anything wrong with this design?
+
+<h3>Let's quickly review the Dependency Inversion Principle</h3>
+
+The Dependency Inversion Principle (DIP) reads:
+
+<ol>
+<li><em>High level modules should not depend upon low level modules. Both should depend upon abstractions.</em></li>
+<li><em>Abstractions should not depend upon details. Details should depend upon abstractions.</em></li>
+</ol>
+
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/09/meme-meaning-320x320.jpg" alt="" width="250" height="250" class="aligncenter size-thumbnail wp-image-171788" />
+
+Please note that in DIP, <em>high level modules</em> doesn't necessarily mean that it's more abstract than <em>low level modules</em>. It simply states that the implementation of "high level modules" relies on "low level modules". You can also call them "clients" and "services", as clients need services to perform certain tasks.
+
+In our example, high level <code>Profile</code> requires <code>Address</code> to store and display an address. To be specific, it depends on properties <code>street</code>, <code>city</code>, and <code>state</code> of a low level module <code>Address</code>. Unfortunately, with this design, it's very hard to make changes. The problem is that you considered implementation too much, and the question you should think through is: what is our business rule, and how should you describe it?
+
+<h3>Figuring out business rules</h3>
+
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/09/meme-business-rules-250x250.jpg" alt="" width="250" height="250" class="aligncenter size-thumbnail wp-image-171785" />
+
+<pre lang="swift">
+protocol Address {
+  var displayAddress: String! { get }
+}
+</pre>
+
+What you really want here is a <code>String</code> based on <code>Address</code> for display purpose. Instead of <code>class</code>, it is a better idea to use interface to describe business rules, i.e. <code>protocol</code> in <em>Swift</em>.
+
+<pre lang="swift">
+class Profile {
+  public var address: Address!
+  public var displayAddress: String! {
+    return address.displayAddress
+  }
+}
+</pre>
+
+Since <code>Address</code> is abstract, our <code>Profile</code> does not care about the implementation of <code>displayAddress</code> anymore.
+
+<pre lang="swift">
+class USAddress: Address {
+  private var street: String!
+  private var city: String!
+  private var state: String!
+  var displayAddress: String! {
+    return street + " " + city + " " + state
+  }
+}
+</pre>
+
+And instead of <code>Address</code>, a more specific <code>USAddress</code> implements all the details like <code>street</code>, <code>city</code>, <code>state</code>, etc.
+
+As you can see, by applying DIP, our code is much easier to maintain in future. You can either create new high level modules, like an <code>AddressValidator</code>; or low level elements, like <code>SingaporeAddress</code> or <code>ChinaAddress</code>, all depend on <code>protocol Address</code>.
+
+<h3>What is Dependency Inversion and Inversion of Control</h3>
+
+You may also have heard of terms like Inversion of Control (IoC), Creation Inversion and so on, and wondered what is the relationship between them and DIP. So let's have a little theory session here.
+
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/09/why-inversion-250x250.jpg" alt="" width="250" height="250" class="aligncenter size-thumbnail wp-image-171788" />
+
+The word Dependency "Inversion" indicates that in traditional software design, high level modules tend to depend on low level modules. Less code in this way, for sure, but there will be more pain when changes come to business requirements. As you can see in the example above, you will have to modify both high level and low level modules.
+
+And what about IoC vs DIP? IoC, as a method, is the way to achieve DIP, as a principle, by inversing control. There are multiple ways to implement IoC:
+
+<ul>
+<li><em>Interface Inversion</em>: inverseing interfaces</li>
+<li><em>Flow Inversion</em>: inverseing flow of control</li>
+<li><em>Creation Inversion</em>: creating objects outside of the classes they are being used in</li>
+<ul>
+<li><em>Factory Pattern</em>: creating objects from Class Factories</li>
+<li><em>Service Locator</em>: creating objects from a Service Locator</li>
+<li><em>Dependency Injection</em></li>
+</ul>
+</ul>
+
+Among them, Creation Inversion is highly used in modern software engineering. Perhaps you have used Factory Pattern or Service Locator before, and Dependency Injection (DI) is also one kind of creation inversion.
+
+<h3>Dependency Injection is an important implementation</h3>
+
+All those methods mentioned above allow you to invert the control, i.e. implement IoC. And in this article you will be focusing on Dependency Injection, an important implementation of IoC.
+
+The word Dependency "Injection" means that low level modules are "injected" into high level modules. Consider our <code>Address</code> for example: <code>Profile</code> does not build <code>USAddress</code>, nor tries to locate any. Instead, you will use something like <code>profile.address = USAddress()</code> to inject <code>USAddress</code> into <code>Profile</code> as an <code>Address</code>.
+
+[I feel like I'm a DI expert now!](image)
+
+That's good! And there are a bunch of tricks to help achieve Dependency Injection. Let's take a look at our sample project.
+
+<h2>Basic example of Dependency Injection</h2>
+
+Firstly please clone project from <a href="https://github.com/superarts/InjectionClub">GitHub page</a>, and open <em>InjectionClub.xcworkspace</em> with <em>Xcode</em>. Take a brief reading at README, run the project, and play around with it to see how it works.
+
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/09/ui-user.png" alt="" width="320" height="576" border="1" class="alignmiddle size-full wp-image-171791" />
+
+Doesn't do much, huh? Well the reason is that...
+
+<h3>Oh no! Another project without design and backend ready</h3>
+
+In an ideal world, software development happens in streamline: product manager gathers requirements from client, UX builds wireframes. Once approved, based on UI design and back-end API, we mobile developers will be building apps undisturbed. Hmm, another peaceful day.
+
+[I can sleep safe and sound](image)
+
+...Until you wake up from daydreaming and face another project with minimal requirements, no design and back-end API at all, and a more-strict-than-ever deadline.
+
+<h3>System design: Avatar and User as its author</h3>
+
+For now, the only thing you know is that you are going to build some community app with some sort of user system that supports avatar. Nothing else. You believe the only thing you can do at this phase is to write some model classes and wait for more details. But what if I would tell you, that it is possible to start writing tests at this stage, based on very basic business rules?
+
+Let's assume the requirements you have include:
+
+<ul>
+<li>Avatars and Users have non-negative unique IDs</li>
+<li>Avatars and Users will use back-end APIs for their creation</li>
+<li>You can retrive Avatars and Users by ID based queries</li>
+<li>An Avatar must have an author</li>
+</ul>
+
+<h3>Creating Protocols as interfaces</h3>
+
+It's still debatable whether interfaces or tests should come first. You write tests based on business rules, but without interfaces, it is very hard for us to define business rules clearly. I tend to think they are kind of like chicken and egg. You can't really separate "what to do" and "what to test" apart in your thought process in the very beginning. In this tutorial I'll start with protocols, but it is totally fine to start writing tests first, and then conclude interfaces base on the tests.
+
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/09/project-protocols.png" alt="" width="227" height="103" class="alignmiddle size-full wp-image-171791" />
+
+<pre lang="swift">
+protocol Indexable {
+  var uid: Int { get set }
+  func isValid() -> Bool
+}
+
+extension Indexable {
+  func isValid() -> Bool {
+    return uid >= 0
+  }
+}
+</pre>
+
+In the <em>Protocols</em> folder, you defined the following protocols, based on the business requirements mentioned above. Firstly you create <code>protocl Indexable</code> so that:
+
+<ul>
+<li>An <code>Indexable</code> object must have a unique ID <code>uid</code></li>
+<li>An <code>Indexable</code> object is valid if <code>uid</code> is 0 or positive</li>
+</ul>
+
+With <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID521">protocol extension</a> you provide default implementation for function <code>isValid()</code>.
+
+<pre lang="swift">
+protocol Presentable: Indexable {
+  func create(completion: ErrorClosure?)
+  func query(uid: Int)
+}
+
+extension Presentable {
+  func create(completion: ErrorClosure? = nil) {
+    create(completion: completion)
+  }
+}
+</pre>
+
+The next protocol you come up with is <code>Presentable</code> so that:
+
+<ul>
+<li><code>Presentable</code> objects are <code>Indexable</code></li>
+<li>You can <code>create</code> <code>Presentable</code> objects asynchronously with an optional <code>ErrorClosure</code> callback</li>
+<li>You can <code>query</code> <code>Presentable</code> objects via <code>uid</code></li>
+</ul>
+
+Although the server is not ready, you design it in a way that <code>create</code> posts a <code>Presentable</code> object to server asynchronously, call a <code>completion</code> closure once server finishes creating the object remotely. You also assume that some background service maintains some persistence layer, so that <code>query</code> returns a <code>Presentable</code> object with a given <code>uid</code> from local database immediately.
+
+<pre lang="swift">
+protocol Avatar: Presentable {
+  var imageURL: String { get set }
+  var author: User! { get set }
+  init()
+  init(author: User)
+}
+
+protocol User: Presentable, CustomStringConvertible {
+  var username: String! { get set }
+
+  init()
+  init(username: String)
+}
+</pre>
+
+Finally you define the actual <code>Avatar</code> and <code>user</code> protocols, assuming that:
+
+<ul>
+<li>Both <code>Avatar</code> and <code>User</code> are <code>Presentable</code></li>
+<li><code>Avatar</code> must have <code>User</code> as its <code>author</code></li>
+</ul>
+
+For either <code>Avatar</code> or <code>User</code>, there will be 2 use cases. To create a new object, <code>init</code> with parameter <code>author</code> or <code>username</code> creates a local object. And once you call <code>create(completion:)</code>, server should assign a <code>uid</code> to the object so that it becomes valid. To query an existing object, <code>init()</code> creates a "placeholder" object. After <code>query(uid:)</code>, persistence layer reload the contents of the object.
+
+<h3>Writing tests</h3>
+
+<img src="https://koenig-media.raywenderlich.com/uploads/2017/09/project-tests.png" alt="" width="240" height="141" class="alignmiddle size-full wp-image-171791" />
+
+<pre lang="swift">
+  var newUser: User!
+  var newAvatar: Avatar!
+</pre>
+
+There are several test classes in the project, and since no you haven't added any Dependency Injection framework yet, let's start with <em>NewUserAndAvatarWithoutSwinjectTests</em>, which is about creating new instances of <code>Avatar</code> and <code>User</code>. Suppose you're starting with a <code>newUser</code> and a <code>newAvatar</code>, and <code>newUser</code> will be the <code>author</code> of <code>newAvatar</code>.
+
+<pre lang="swift">
+override func setUp() {
+  super.setUp()
+  //  newUser = User(username: "Ned Stark")
+  //  newAvatar = Avatar(author: newUser)
+  newAvatar.create(completion: { error in
+    self.newUser.create(completion: { error in
+    exp.fulfill()
+    })
+  })
+}
+</pre>
+
+In <code>setUp()</code>, you would like to initialize local objects first, then call <code>create(completion:)</code> to actually create the objects asynchronously. For obvious reason, you should initialize <code>newUser</code> first, and then initialzed <code>newAvatar</code>. The steps would be:
+
+<ol>
+<li>Initialize <code>newUser</code> with <code>username</code>;</li>
+<li>Initialize <code>newAvatar</code> with <code>newUser</code> as <code>author</code>;</li>
+<li>Create <code>newAvatar</code>;</li>
+<li>Create <code>newUser</code>.</li>
+</ol>
+
+While initialzing <code>Avatar</code> with <code>author: newUser</code>, you are injecting dependency <code>User</code> to <code>Avatar</code>. <code>Avatar</code> does not depend on the implementation of <code>User</code> at all: due to lack of back-end support, you are not able to provide an actual <code>User</code> yet. However, it doesn't stop us from writing the setup processes above, and wouldn't stop us from writing test cases either.
+
+But before you write test cases, one thing may conern you is that codes like <code>newUser = User()</code> are not going to actually work, and that's why they are comments. But it is not a bad thing. At this stage, instead of worrying about implementation, you should focus on business logic: what do you want to test?
+
+<pre lang="swift">
+func testNewUserIsValid() {
+  XCTAssertTrue(newUser.isValid())
+}
+func testNewAvatarIsValid() {
+  XCTAssertTrue(newAvatar.isValid())
+}
+</pre>
+
+Firstly, after you create objects in <code>setUp()</code>, you would like to validate <code>newUser</code> and <code>newAvatar</code>.
+
+<pre lang="swift">
+func testNewAvatarHasNewUser() {
+  let author: User! = newAvatar.author
+  XCTAssertTrue(author as AnyObject === newUser as AnyObject)
+}
+</pre>
+
+And secondly, it's also important that <code>author</code> of <code>newAvatar</code> should be the same as <code>newUser</code>.
+
+So far you have implemented the bare-bones of our test class. But to actually make it executable, you need to implement minimal mock-up classes of <code>User</code> and <code>Avatar</code>, and inject mock <code>User</code> into <code>Avatar</code> to replace the dependency.
+
+<h3>Creating mock classes & test</h3>
+
+When back-end is not ready, it is a common practice to test your app using mock data. Some networking libraries e.g. <em>Moya</em> provide ways to utilize a hard-coded JSON payload to simulate data return from API. Besides using mock JSON, mock classes can be useful for various reasons. In our case, you simply hide the potentially complex implementation, and only providing minimal details to pass our test. In future, once you have learned more details of business rules, you can add more logic in our mock classes, or start working on the implementation of actual classes.
+
+<pre lang="swift">
+class MockUser: User {
+  // 1
+  var uid = -1
+  var username: String!
+  
+  required init() {
+  }
+  required init(username: String) {
+    self.username = username
+  }
+  
+  // 2
+  func create(completion: ErrorClosure? = nil) {
+    uid = 1
+    if let closure = completion {
+      closure(nil)
+    }
+  }
+  // 3
+  func query(uid: Int) {
+    self.uid = uid
+    username = String(format: "test%03d", uid)
+  }
+}
+</pre>
+
+The minimal implementation for <code>User</code> would be like this:
+
+<ol>
+<li>It starts with an invalid <code>uid</code>.</li>
+<li>After <code>create(completion:)</code>, <code>uid</code> will be set to <code>1</code> to make it valid</li>
+<li>After <code>query(uid:)</code>, both <code>uid</code> and <code>username</code> will be set up to simulate success object retieving.</li>
+</ol>
+
+Again, this is the minimal implementation. We are not going to expand it in this tutorial, but potentially you may add various things, for example:
+
+<ul>
+<li>Create a <code>MockFailureUser</code> that returns an error after in the completion closure of <code>create</code> to test error handling in your app</li>
+<li>Implement persistence layer to perform more tests</li>
+</ul>
+
+<pre lang="swift">
+class MockAvatar: Avatar {
+  var uid = -1
+  var imageURL = "http://www.superarts.org/injection/default.png"
+  var author: User!
+  
+  required init() {
+  }
+  required init(author: User) {
+    self.author = author
+  }
+  
+  func create(completion: ErrorClosure? = nil) {
+    uid = 1
+    if let closure = completion {
+      closure(nil)
+    }
+  }
+  func query(uid: Int) {
+    self.uid = uid
+    imageURL = String(format: "http://test.com/image%03d.png", uid)
+    
+    // create an author
+    var user = DIManager.initUser()
+    user.query(uid: 42)
+    author = user
+  }
+}
+</pre>
+
+In the same manner let's create <code>MockAvatar</code>. An additional thing you are doing here is that in <code>query(uid:)</code>, you also create the <code>author</code> of <code>Avatar</code>, since an <code>Avatar</code> must have an <code>author</code>, according to our business rule.
+
+<pre lang="swift">
+let exp = expectation(description: "\(#function)\(#line)")
+
+newUser = MockUser(username: "Ned Stark")
+newAvatar = MockAvatar(author: newUser)
+
+newAvatar.create(completion: { error in
+  self.newUser.create(completion: { error in
+    exp.fulfill()
+  })
+})
+    
+waitForExpectations(timeout: 60, handler: nil)
+</pre>
+
+Now you can actually make our test work by introducing dependency <code>MockUser</code> and <code>MockAvatar</code>.
+
+<h2>Adding Swinject as our Dependency Injection framework</h2>
+
+Although our test works so far, you shouldn't be happy about code like <code>newUser = MockUser(username: "Ned Stark")</code>. Yes, it works for now, but after you implement a cached <code>LocalUser</code>, or a <code>RemoteUser</code> powered by back-end, would you do a search-and-replace for all strings <code>MockUser</code> in our test file?
+
+<pre lang="swift">
+let userType: User.Type = MockUser.self
+let avatarType: Avatar.Type = MockAvatar.self
+
+newUser = userType.init(username: "Ned Stark")
+newAvatar = avatarType.init(author: newUser)
+</pre>
+
+At least there should be some mechanism like the code above to provide some sort of flexibility. By changing <code>userType</code> and initialize all <code>Users</code> from it, the problem is kind of solved. Basically you're doing 2 things here:
+
+<ol>
+<li><em>Dependency configuration</em>: <code>let userType: User.Type = MockUser.self</code></li>
+<li><em>Dependency resolution</em>: <code>let newUser: User = userType.init(username: "Ned Stark")</code></li>
+</ol>
+
+<h3>Why you need a Dependency Injection framework</h3>
+
+Using <code>User.Type</code>, instead of <code>MockUser</code> to intialize <code>newUser</code>, is definitely an improvement here. It makes the dependency more obvious by saying something is a <code>User</code>, and its actual dependency is <code>MockUser</code>. It seems to be a good direction. And if you go further down this road, you would end up with a Dependency Injection framework, which provides a more unified way to help us manage all these dependencies.
+
+<h3>Introducing Dependency Injection framework Swinject</h3>
+
+Let's make it clear: Dependency Injection framework is not a MUST. As demostrated above, there are various ways to achieve Dependency Injection in general, and even you want a Dependency Injection framework you can always write your own. But of course, instead of handling things like <a href="https://github.com/Swinject/Swinject/blob/master/Documentation/ThreadSafety.md">thread safty</a> yoursef, a more productive approach would be choosing a well structured, well maintained framework. In this example, you'll be using one of the most popular Dependency Injection frameworks for <em>Swift</em>: <a href="https://github.com/Swinject/Swinject">Swinject</a>.
+
+But before you start with <em>Swinject</em>, let's take a step back, and take a look at the concept of Dependency Injection contaner.
+
+<h3>Dependency Injection Container</h3>
+
+<pre lang="swift">
+// configure
+struct DIManager {
+  let userType: User.Type = MockUser.self
+  let avatarType: Avatar.Type = MockAvatar.self
+  static func setup() {
+    let userType: User.Type = MockUser.self
+    let avatarType: Avatar.Type = MockAvatar.self
+  }
+}
+
+// resolve
+let newUser: User = DIManager.userType.init(username: "Ned Stark")
+</pre>
+
+Basically a Dependency Injection container is the place that configures and resolves your dependencies. For example, without <em>Swinject</em>, you can create a <code>DIManager</code> as above to help us configure and resolve dependencies.
+
+One argument is whether you should manage dependencies in one or more centralized places. Generally speaking, configuring and resolving dependencies at the same place, as shown in <em>NewUserAndAvatarWithoutSwinjectTests</em>, is easier to understand when dependencies are relatively simple, since reader can find and read codes in the same place. In this case Dependency Injection containers don't help much.
+
+However, when dependencies become complex and even nested, utilizing Dependency Injection container helps dependencies organized. Taking 5 minutes to read the code in Dependency Injection container should give you an idea of the dependencies structure. But again, there's no silver bullet that magically solves the problem of understanding complex dependencies. In the end, it's up to the experience of your own development team, but Dependency Injection frameworks hopefully make life easier.
+
+<h3>Adding Swinject to our project</h3>
+
+The concept Dependency Injection itself may not be that straightforward due to its "inversing" nature, but our own Dependency Injection implementation above has been very simple. Using <code>Swinject</code> shouldn't be harder than that, right? Well <em>Swinject</em> actually is very easy to use.
+
+<pre lang="swift">
+import Swinject
+static let container = Container()
+</pre>
+
+To create a Dependency Injection container, after install <em>CocoaPod Swinject</em>, you just need to initialize a Dependency Injection <code>Container</code>. And Bingo! You created a Dependency Injection container.
+
+<pre lang="swift">
+container.register(User.self) { _ in MockUser() }
+let newUser = container.resolve(User.self)!
+</pre>
+
+To configure and resolve dependencies, it's as simple as above.
+
+<pre lang="swift">
+container.register(User.self) { _, username in MockUser(username: username) }
+let newUser = container.resolve(User.self, argument: username)!
+</pre>
+
+In our example, you also need to initialize objects with parameter(s). As you can see, this is still not complicated at all.
+
+<pre lang="swift">
+struct DIManager {
+  static let container = Container()
+  
+  @discardableResult
+  static func setup() -> Container {
+    container.register(User.self) { _ in MockUser() }
+    container.register(User.self) { _, username in MockUser(username: username) }
+    container.register(Avatar.self) { _ in MockAvatar() }
+    container.register(Avatar.self) { _, user in MockAvatar(author: user) }
+    return container
+  }
+}
+</pre>
+
+And now, our new <code>DIManager</code> would be like this.
+
+<pre lang="swift">
+extension DIManager {
+  static func initUser(username: String) -> User {
+    return container.resolve(User.self, argument: username)!
+  }
+  
+  // other initializers like initUser(), initAvatar(), initAvatar(author: User) ...
+}
+</pre>
+
+If you like the idea of putting configuring and resolving together, you can create extension like this, if you prefer:
+
+<pre lang="swift">
+let newUser = container.initUser(username: username)
+</pre>
+
+Instead of:
+
+<pre lang="swift">
+let newUser = container.resolve(User.self, argument: username)!
+</pre>
+
+<h3>Rewriting and adding more tests</h3>
+
+<pre lang="swift">
+let userType: User.Type = MockUser.self
+let avatarType: Avatar.Type = MockAvatar.self
+
+newUser = userType.init(username: "Ned Stark")
+newAvatar = avatarType.init(author: newUser)
+</pre>
+
+After introducing <code>DIManager</code>, our <em>NewUserAndAvatarTests</em> is very simular with <em>NewUserAndAvatarWithoutSwinjectTests</em>. Instead of the code above, you now have:
+
+<pre lang="swift">
+DIManager.setup()
+newUser = DIManager.initUser(username: "Ned Stark")
+newAvatar = DIManager.initAvatar(author: newUser)
+</pre>
+
+With our new <code>DIManager</code>, you also have <em>QueriedAvatarTests</em> and <em>QueriedUserTests</em> to make sure queried objects are valid. Have a look in <em>InjectionClubTests</em> to see how they work.
+
+<h3>Implementing mockup UI</h3>
+
+Besides tests, you can also build minimal UI as proof of concepts. In <code>UserViewController</code>, you offer functionalities to create <code>User</code> objects and inspect them in debug log. It doesn't do much at the moment, but once you implement classes like <code>RemoteUser</code>, you can easily get rid of <code>MockUser</code> in <code>DIManager</code>, and both UI and tests are going to work immediately without any modification at all.
+
+<h2>Circular Dependencies</h2>
+
+There are a lot of features in <em>Swinject</em>, for example <em>circular dependency injection</em>. Now let's take a look at "constructor injection" vs "setter injection", or "initializer injection" vs "property injection".
+
+<h3>Constructor injection and setter injection</h3>
+
+In our previous code, <code>avatar = DIManager.initAvatar(author: user)</code> injects <code>User</code> into <code>Avatar</code> during construction phase. Not surprising at all, we call it "constructor injection", or "initializer injection". Another common approach would be "setter injection" or "property injection". As you may guess from the name itself, it describes injecting dependencies as properties. Let's expand our example a bit.
+
+<h3>Example: User with avatar and Avatar with author</h3>
+
+Logically, while a <code>User</code> creates <code>Avatar</code> and becomes its <code>author</code>, a <code>User</code> can still have an <code>Avatar</code> at the same time. This is "circular dependencies", which means objects depend upon each other. In <em>Swinject</em>, to achieve circular dependency, you must inject at least one of the dependencies through a property.
+
+<pre lang="swift">
+let user = DIManager.initUser(username: "Ned Stark")
+// 1
+let avatar = DIManager.initAvatar(author: user)
+// 2
+user.avatar = avatar
+</pre>
+
+In our case:
+
+<ol>
+	<li>After injecting <code>User</code> to <code>Avatar</code>,</li>
+	<li>You need to inject <code>Avatar</code> to <code>User</code>.</li>
+</ol>
+
+<h3>Updating Interfaces</h3>
+
+<pre lang="swift">
+protocol User: Presentable, CustomStringConvertible {
+  var username: String! { get set }
+  weak var avatar: Avatar? { get set }
+
+  init()
+  init(username: String)
+}
+</pre>
+
+To do this, let's update <code>protocol User</code> first.
+
+<pre lang="swift">
+protocol Avatar: class, Presentable, CustomStringConvertible
+</pre>
+
+As you may already know, when two classes reference each other strongly, it's going to create <a href="/134411/arc-memory-management-swift">strong reference cycle</a>. To avoid memory leak, you need to make propety <code>avatar</code> <code>weak</code>, for what you also need to change <code>protocol Avatar</code> as above.
+
+By putting <code>class</code> there, you allow <code>avatar</code> to be <code>weak</code> in <code>User</code>, thus breaking strong reference cycle.
+
+<h3>Updating NewUserAndAvatarTests</h3>
+
+<pre lang="swift">
+newAvatar.create(completion: { error in
+  self.newUser.avatar = self.newAvatar
+  self.newUser.create(completion: { error in
+    exp.fulfill()
+  })
+})
+</pre>
+
+In <code>setUp()</code>, after you create <code>newAvatar</code>, you set its <code>avatar</code> to <code>newAvatar</code>.
+
+<pre lang="swift">
+func testNewUserHasNewAvatar() {
+  let avatar: Avatar! = newUser.avatar
+  XCTAssertTrue(avatar as AnyObject === newAvatar as AnyObject)
+}
+</pre>
+
+And with this new test case, you'll be able to make sure <code>avatar</code> of <code>newUser</code> is <code>newUser</code>.
+
+<h3>Updating MockUser</h3>
+
+Of course you also need to update <code>MockUser</code> so that it conforms to the updated <code>User</code> protoco, but there's something tricky here to make <em>QueriedUserTests</em> work. Since you are providing a mock version of <code>query(uid:)</code>, while setting <code>username</code>, you should also create its <code>avatar</code>. But if you initialize an <code>Avatar</code> object and set it to <code>self.avatar</code>, since property <code>avatar</code> is <code>weak</code>, ARC does not retain it.
+
+<pre lang="swift">
+weak var avatar: Avatar?
+private var _avatar: Avatar?
+func query(uid: Int) {
+  self.uid = uid
+  username = String(format: "test%03d", uid)
+  
+  let avatar = DIManager.initAvatar(author: self)
+  avatar.create()
+  _avatar = avatar
+  self.avatar = avatar
+}
+</pre>
+
+There are various ways to solve this problem. You can work it around by adding a private strong property <code>_avatar</code> to help retain <code>avatar</code>.
+
+Now run the tests and check all test cases to see how everything works.
+
+<h2>Conclusion</h2>
+
+Nobody loves requirement changes, but that is generally a part of our lives as software engineers. As Bob Martin mentioned, we're already pretty good at reusing low level modules, for example a logging library. Low level modules are always more generic, while high level modules are more likely coming from very specific business requirements. 
+
+Implementing DIP resolves this problem by introducing additional layers, to decouple high level modules with specific low level modules. As a result, it's easier to modify or reuse high level modules.
+
+However, software architecture is not always self explained. I found it's very useful to spend an hour to talk with new guys joining the team, explaining how and why the code works in this way. It may sound stupid, but not everyone is doing it, especially for developers work remotely. Sometimes people are too proud of their code, but there is not always only one way to do things right, at least for architecting.
+
+<h2>Where To Go From Here?</h2>
+
+Thanks for reading this tutorial! If you would like to learn more about <em>Swinject</em>, check the "features" and "extensions" sections of <a href="https://github.com/Swinject/Swinject">the GitHub project</a>. Also, you may want to check out other Dependency Injection frameworks for iOS, for example <a href="https://github.com/appsquickly/Typhoon">Typhoon</a> and <a href="https://github.com/AliSoftware/Dip">DIP</a>.
+
+We hope you enjoyed this tutorial, and if you have any questions or comments, please join the forum discussion below!
